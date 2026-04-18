@@ -17,7 +17,7 @@ const Hero = () => {
       {/* Background with Gradients */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(184,134,11,0.1) 0%, transparent 70%), var(--dark)',
+        background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(186,139,45,0.05) 0%, transparent 70%), var(--dark)',
         zIndex: -1
       }} />
 
@@ -26,14 +26,14 @@ const Hero = () => {
         <motion.div
           key={size}
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.2 - (i * 0.05), scale: 1 }}
-          transition={{ duration: 2, delay: i * 0.5, repeat: Infinity, repeatType: 'reverse' }}
+          animate={{ opacity: 0.05 - (i * 0.01), scale: 1 }}
+          transition={{ duration: 3, delay: i * 0.5, repeat: Infinity, repeatType: 'reverse' }}
           style={{
             position: 'absolute',
             width: size,
             height: size,
             borderRadius: '50%',
-            border: '1px solid var(--gold)',
+            border: '1px solid rgba(96, 40, 54, 0.08)',
             pointerEvents: 'none',
             top: '50%',
             left: '50%',
@@ -49,15 +49,17 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
       >
         <span className="section-label">Trusted Jewellery Chit Fund</span>
-        <h1 className="section-title" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', marginBottom: '0.5rem', color: 'var(--cream)' }}>
+        <h1 className="section-title" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', marginBottom: '0.5rem', color: '#1A1814' }}>
           Sri Kalyani<br />
           <em style={{ color: 'var(--gold)' }}>Jewellery</em>
         </h1>
-        <p className="luxury-serif" style={{ 
-          fontSize: 'clamp(1.25rem, 3vw, 2rem)', 
-          color: 'var(--text-muted)',
-          letterSpacing: '0.1em',
-          marginBottom: '2.5rem'
+        <p style={{ 
+          fontSize: 'clamp(1.1rem, 3vw, 2.2rem)', 
+          color: 'var(--gold-light)',
+          letterSpacing: '0.15em',
+          marginBottom: '2.5rem',
+          fontWeight: 400,
+          textTransform: 'uppercase'
         }}>
           Chit Fund Scheme
         </p>
@@ -69,10 +71,11 @@ const Hero = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
         style={{
           maxWidth: '540px',
-          fontSize: '1rem',
+          fontSize: '1.05rem',
           lineHeight: '1.8',
-          color: 'rgba(26,26,26,0.6)',
-          marginBottom: '3.5rem'
+          color: 'var(--text-muted)',
+          marginBottom: '3.5rem',
+          fontWeight: 300
         }}
       >
         Save systematically every month and redeem your full maturity value as exquisite jewellery. 
@@ -99,20 +102,20 @@ const Hero = () => {
           alignItems: 'center', 
           gap: '2rem',
           padding: '1rem 2rem',
-          background: 'rgba(255, 255, 255, 0.03)',
+          background: 'rgba(0, 0, 0, 0.02)',
           borderRadius: '100px',
-          border: '1px solid rgba(201, 168, 76, 0.1)'
+          border: '1px solid rgba(0, 0, 0, 0.05)'
         }}
       >
-        <span style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--gold-light)' }}>
+        <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--gold)' }}>
           Get the App
         </span>
         <div style={{ display: 'flex', gap: '1.5rem' }}>
-          <a href="#" style={{ color: 'var(--cream)', opacity: 0.6, transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.6'}>
+          <a href="#" style={{ transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.8'}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" style={{ height: '30px' }} />
           </a>
-          <a href="#" style={{ color: 'var(--cream)', opacity: 0.6, transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.6'}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style={{ height: '30px', filter: 'invert(1) grayscale(1) brightness(2)' }} />
+          <a href="#" style={{ transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.opacity = '1'} onMouseOut={(e) => e.target.style.opacity = '0.8'}>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style={{ height: '30px', filter: 'brightness(0.3)' }} />
           </a>
         </div>
       </motion.div>

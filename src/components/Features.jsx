@@ -53,7 +53,7 @@ const Features = () => {
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
           gap: '1px',
-          background: 'rgba(184, 134, 11, 0.1)'
+          background: 'rgba(96, 40, 54, 0.05)'
         }}>
           {benefits.map((benefit, i) => (
             <motion.div
@@ -64,7 +64,7 @@ const Features = () => {
               transition={{ delay: i * 0.1 }}
               className="feature-card"
               style={{
-                background: 'var(--dark)',
+                background: '#FFFFFF',
                 padding: '3.5rem 2.5rem',
                 position: 'relative',
                 overflow: 'hidden',
@@ -72,19 +72,19 @@ const Features = () => {
                 cursor: 'default'
               }}
               onMouseOver={(e) => { e.currentTarget.style.background = 'var(--dark-2)'; }}
-              onMouseOut={(e) => { e.currentTarget.style.background = 'var(--dark)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = '#FFFFFF'; }}
             >
               <div style={{ marginBottom: '1.5rem' }}>{benefit.icon}</div>
               <h3 style={{ 
-                fontFamily: "'Cormorant Garamond', serif", 
+                fontFamily: "'Lexend', sans-serif", 
                 fontSize: '1.5rem', 
                 color: 'var(--cream)', 
                 marginBottom: '1rem',
-                fontWeight: 600
+                fontWeight: 500
               }}>
                 {benefit.title}
               </h3>
-              <p style={{ fontSize: '0.9rem', color: 'rgba(26,26,26,0.5)', lineHeight: 1.8 }}>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
                 {benefit.desc}
               </p>
             </motion.div>

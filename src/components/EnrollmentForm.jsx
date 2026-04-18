@@ -54,14 +54,14 @@ const EnrollmentForm = () => {
           viewport={{ once: true }}
           onSubmit={handleSubmit}
           className="glass"
-          style={{ padding: '3rem', borderRadius: '4px' }}
+          style={{ padding: 'clamp(1.5rem, 5vw, 3rem)', borderRadius: '4px' }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div className="form-grid">
             <FormGroup label="Full Name" placeholder="Mr./Ms. Your Name" required />
             <FormGroup label="Phone Number" type="tel" placeholder="+91 XXXXX XXXXX" required />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div className="form-grid">
             <FormGroup label="Email Address" type="email" placeholder="your@email.com" required />
             <div className="form-group">
               <label>ID Proof Type</label>
@@ -83,25 +83,26 @@ const EnrollmentForm = () => {
           <div style={{ 
             marginTop: '3rem', 
             paddingTop: '2rem', 
-            borderTop: '1px solid rgba(201,168,76,0.1)' 
+            borderTop: '1px solid rgba(96,40,54,0.1)' 
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
               <ShieldCheck size={20} className="text-gold" />
               <h4 style={{ 
-                fontFamily: "'Cormorant Garamond', serif", 
-                fontSize: '1.3rem', 
-                color: 'var(--gold-light)' 
+                fontFamily: "'Lexend', sans-serif", 
+                fontSize: '1.2rem', 
+                color: 'var(--gold)',
+                fontWeight: 600
               }}>
                 Bank Verification Details
               </h4>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+            <div className="form-grid" style={{ marginBottom: '1.5rem' }}>
               <FormGroup label="Account Holder Name" placeholder="As per bank records" required />
               <FormGroup label="Bank Name" placeholder="e.g. HDFC, SBI" required />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <div className="form-grid">
               <FormGroup label="Account Number" placeholder="Enter account number" required />
               <FormGroup label="IFSC Code" placeholder="Enter bank IFSC" required />
             </div>
@@ -124,6 +125,18 @@ const EnrollmentForm = () => {
       </div>
 
       <style>{`
+        .form-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+          .form-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+        }
         .form-group {
           display: flex;
           flex-direction: column;
@@ -134,30 +147,31 @@ const EnrollmentForm = () => {
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: var(--text-muted);
+          font-weight: 500;
         }
         .form-input {
-          background: #FFFFFF;
-          border: 1px solid rgba(166, 124, 0, 0.2);
-          padding: 0.9rem 1.2rem;
-          font-family: 'Jost', sans-serif;
+          background: #FDFCF8;
+          border: 1px solid rgba(96, 40, 54, 0.15);
+          padding: 1rem 1.2rem;
+          font-family: 'Lexend', sans-serif;
           font-size: 0.9rem;
-          color: var(--cream);
+          color: #1A1814;
           transition: var(--transition);
           outline: none;
           width: 100%;
-          border-radius: 4px;
+          border-radius: 2px;
         }
         .form-input:focus {
           border-color: var(--gold);
           background: #FFFFFF;
-          box-shadow: 0 0 0 4px rgba(166, 124, 0, 0.05);
+          box-shadow: 0 0 0 4px rgba(96, 40, 54, 0.05);
         }
         .form-input::placeholder {
-          color: rgba(0, 0, 0, 0.4);
+          color: rgba(0, 0, 0, 0.3);
         }
         select.form-input option {
           background: #FFFFFF;
-          color: var(--cream);
+          color: #1A1814;
         }
       `}</style>
     </section>

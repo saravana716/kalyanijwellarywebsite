@@ -167,9 +167,9 @@ const TermsAndPrivacy = () => {
               <LegalSection title="7. Contact Information">
                 For any queries or concerns regarding Terms & Conditions or Privacy Policy, please contact:<br/>
                 <strong>Sri Kalyani Jewellery Chit Fund</strong><br/>
-                Address: ____________________<br/>
-                Phone: ____________________<br/>
-                Email: ____________________
+                Address: Kovilpatti<br/>
+                Phone: 7598303666<br/>
+                Email: srikalyanikvp@gmail.com
               </LegalSection>
             </div>
           )}
@@ -178,10 +178,11 @@ const TermsAndPrivacy = () => {
 
       <style>{`
         .legal-content {
-          color: #2D2926;
+          color: var(--cream);
+          opacity: 0.9;
           font-size: 1rem;
           line-height: 1.8;
-          font-weight: 400;
+          font-weight: 300;
         }
         .legal-content ul {
           list-style: none;
@@ -208,11 +209,11 @@ const TermsAndPrivacy = () => {
 const LegalSection = ({ title, children }) => (
   <div style={{ marginBottom: '2.5rem' }}>
     <h3 style={{ 
-      fontFamily: "'Cormorant Garamond', serif", 
-      fontSize: '1.6rem', 
-      color: 'var(--gold-light)', 
+      fontFamily: "'Lexend', sans-serif", 
+      fontSize: '1.4rem', 
+      color: 'var(--gold)', 
       marginBottom: '1rem',
-      fontWeight: 500
+      fontWeight: 600
     }}>
       {title}
     </h3>

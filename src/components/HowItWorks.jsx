@@ -37,7 +37,7 @@ const HowItWorks = () => {
           >
             <span className="section-label">Process</span>
             <h2 className="section-title" style={{ color: 'var(--cream)' }}>How the<br /><em>Scheme Works</em></h2>
-            <p className="section-body" style={{ color: 'rgba(26,26,26,0.6)', maxWidth: '450px' }}>
+            <p className="section-body" style={{ color: 'var(--text-muted)', maxWidth: '450px' }}>
               Join our monthly chit scheme, make regular installments, and at the end of your tenure redeem the full value toward any jewellery of your choice at our store.
             </p>
           </motion.div>
@@ -49,29 +49,31 @@ const HowItWorks = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                onMouseOver={(e) => { e.currentTarget.style.background = 'var(--dark-3)'; }}
+                onMouseOut={(e) => { e.currentTarget.style.background = 'var(--dark)'; }}
                 style={{ display: 'flex', gap: '2rem' }}
               >
                 <div style={{ 
-                  fontFamily: "'Cormorant Garamond', serif", 
+                  fontFamily: "'Lexend', sans-serif", 
                   fontSize: '3rem', 
-                  color: 'rgba(184,134,11,0.15)', 
+                  color: 'rgba(96, 40, 54, 0.1)', 
                   lineHeight: 1,
-                  minWidth: '3.5rem'
+                  minWidth: '3.5rem',
+                  fontWeight: 600
                 }}>
                   {step.num}
                 </div>
                 <div>
                   <h3 style={{ 
-                    fontFamily: "'Cormorant Garamond', serif", 
+                    fontFamily: "'Lexend', sans-serif", 
                     fontSize: '1.4rem', 
                     color: 'var(--gold)', 
                     marginBottom: '0.5rem',
-                    fontWeight: 600
+                    fontWeight: 500
                   }}>
                     {step.title}
                   </h3>
-                  <p style={{ fontSize: '0.9rem', color: 'rgba(26,26,26,0.5)', lineHeight: 1.8 }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
                     {step.desc}
                   </p>
                 </div>
