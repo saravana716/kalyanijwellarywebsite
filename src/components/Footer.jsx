@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <img src="/logo.png" alt="Sri Kalyani Logo" style={{ height: '180px', width: 'auto', marginLeft: '-2.5rem' }} />
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.8, fontWeight: 300 }}>
-              A trusted jewellery chit fund scheme helping you save systematically and redeem your dream jewellery with confidence and excellence.
+              A trusted jewellery Gold Saving scheme helping you save systematically and redeem your dream jewellery with confidence and excellence.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
           color: 'var(--text-muted)',
           opacity: 0.8
         }}>
-          <span>© 2026 Sri Kalyani Jewellery Chit Fund. All rights reserved.</span>
+          <span>© 2026 Sri Kalyani Jewellery Gold Saving. All rights reserved.</span>
         </div>
       </div>
     </footer>

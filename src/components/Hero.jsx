@@ -48,7 +48,7 @@ const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="section-label">Trusted Jewellery Chit Fund</span>
+        <span className="section-label">Trusted Jewellery Gold Saving</span>
         <h1 className="section-title" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)', marginBottom: '0.5rem', color: '#1A1814' }}>
           Sri Kalyani<br />
           <em style={{ color: 'var(--gold)' }}>Jewellery</em>
@@ -61,7 +61,7 @@ const Hero = () => {
           fontWeight: 400,
           textTransform: 'uppercase'
         }}>
-          Chit Fund Scheme
+          Gold Saving Scheme
         </p>
       </motion.div>
 

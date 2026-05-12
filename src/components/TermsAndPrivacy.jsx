@@ -58,7 +58,7 @@ const TermsAndPrivacy = () => {
           {activeTab === 'terms' ? (
             <div className="legal-content">
               <LegalSection title="1. Introduction">
-                Welcome to Sri Kalyani Jewellery Chit Fund. By enrolling in our jewellery chit scheme, you agree to abide by the following terms and conditions.
+                Welcome to Sri Kalyani Jewellery Gold Saving. By enrolling in our jewellery Saving scheme, you agree to abide by the following terms and conditions.
               </LegalSection>
               
               <LegalSection title="2. Eligibility">
@@ -69,7 +69,7 @@ const TermsAndPrivacy = () => {
                 </ul>
               </LegalSection>
 
-              <LegalSection title="3. Chit Scheme Details">
+              <LegalSection title="3. Saving scheme Details">
                 <ul>
                   <li>Monthly installment amount: ₹________</li>
                   <li>Tenure: ______ months</li>
@@ -120,7 +120,7 @@ const TermsAndPrivacy = () => {
 
               <LegalSection title="9. Company Rights">
                 <ul>
-                  <li>Sri Kalyani Jewellery Chit Fund reserves the right to modify scheme terms with prior notice.</li>
+                  <li>Sri Kalyani Jewellery Gold Saving reserves the right to modify scheme terms with prior notice.</li>
                   <li>In case of disputes, the decision of management shall be final. All disputes are subject to local jurisdiction.</li>
                 </ul>
               </LegalSection>
@@ -134,7 +134,7 @@ const TermsAndPrivacy = () => {
               <LegalSection title="2. Purpose of Data Collection">
                 Your information is collected to:
                 <ul>
-                  <li>Register yourself in the chit scheme</li>
+                  <li>Register yourself in the Saving scheme</li>
                   <li>Maintain payment records</li>
                   <li>Communicate scheme updates</li>
                   <li>Process maturity benefits</li>
@@ -161,12 +161,12 @@ const TermsAndPrivacy = () => {
               </LegalSection>
 
               <LegalSection title="6. Changes to Privacy Policy">
-                Sri Kalyani Jewellery Chit Fund reserves the right to update this Privacy Policy at any time. Updated policies will be communicated through official channels.
+                Sri Kalyani Jewellery Gold Saving reserves the right to update this Privacy Policy at any time. Updated policies will be communicated through official channels.
               </LegalSection>
 
               <LegalSection title="7. Contact Information">
                 For any queries or concerns regarding Terms & Conditions or Privacy Policy, please contact:<br/>
-                <strong>Sri Kalyani Jewellery Chit Fund</strong><br/>
+                <strong>Sri Kalyani Jewellery Gold Saving</strong><br/>
                 Address: Kovilpatti<br/>
                 Phone: 7598303666<br/>
                 Email: srikalyanikvp@gmail.com
