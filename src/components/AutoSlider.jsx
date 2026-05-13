@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import banner1 from '../assets/banner.jpeg';
 import banner2 from '../assets/banner1.jpeg';
+import my1 from '../assets/my1.jpeg';
 
 const slides = [
   { id: 1, image: banner1 },
-  { id: 2, image: banner2 },
+  { id: 2, image: my1 },
 ];
 
 const AutoSlider = () => {

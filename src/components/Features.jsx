@@ -10,7 +10,7 @@ const heritageFeatures = [
   },
   {
     icon: <Gem className="text-gold" size={28} />,
-    title: 'Certified Diamonds',
+    title: '100% Certified ',
     desc: 'Our diamonds are certified by international labs like GIA and IGI, guaranteeing quality and value.'
   },
   {
