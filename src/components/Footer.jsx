@@ -8,9 +8,9 @@ const Footer = () => {
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
           <div>
-            <img src={logo} alt="Sri Kalyani Logo" style={{ height: '150px', width: 'auto', marginLeft: '-1rem', marginBottom: '1.5rem' }} />
+            <img src={logo} alt="Sri Kalyani Logo" style={{ height: '200px', width: 'auto', marginLeft: '-1rem', marginBottom: '1.5rem' }} />
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.8, fontWeight: 300 }}>
-              Discover the art of fine jewelry at Sri Kalyani. Handcrafted masterpieces in 22K Gold and Certified Diamonds, carrying a legacy of purity and trust since 1995.
+              Discover the art of fine jewelry at Sri Kalyani. Handcrafted masterpieces in 22K Gold and Certified Diamonds, carrying a legacy of purity.
             </p>
           </div>
 
