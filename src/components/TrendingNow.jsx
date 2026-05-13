@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import heroImg from '../assets/redesign/hero.png';
+import l1 from '../assets/l1.jpeg';
 
 const TrendingNow = () => {
   return (
@@ -22,8 +22,8 @@ const TrendingNow = () => {
             viewport={{ once: true }}
           >
             <img 
-              src={heroImg} 
-              alt="Trending Piece" 
+              src={l1} 
+              alt="Limited Edition Piece" 
               style={{ width: '100%', borderRadius: '2px' }} 
             />
           </motion.div>
@@ -40,7 +40,6 @@ const TrendingNow = () => {
               Featuring intricately carved 22K gold and hand-picked emeralds, this piece is a testament to our legacy.
             </p>
             <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <a href="#enroll" className="btn btn-primary">Inquire Now</a>
               <a href="#products" className="btn btn-outline">Explore More</a>
             </div>
           </motion.div>
