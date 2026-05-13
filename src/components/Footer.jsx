@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../assets/logo_new.png';
 
 const Footer = () => {
   return (
@@ -7,38 +8,29 @@ const Footer = () => {
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
           <div>
-            <img src="/logo.png" alt="Sri Kalyani Logo" style={{ height: '180px', width: 'auto', marginLeft: '-2.5rem' }} />
+            <img src={logo} alt="Sri Kalyani Logo" style={{ height: '120px', width: 'auto', marginLeft: '-1rem', marginBottom: '1.5rem' }} />
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.8, fontWeight: 300 }}>
-              A trusted jewellery Gold Saving scheme helping you save systematically and redeem your dream jewellery with confidence and excellence.
+              Discover the art of fine jewelry at Sri Kalyani. Handcrafted masterpieces in 22K Gold and Certified Diamonds, carrying a legacy of purity and trust since 1995.
             </p>
           </div>
 
           <div>
-            <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Quick Links</h4>
+            <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Explore</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <li><FooterLink href="#how-it-works">How It Works</FooterLink></li>
-              <li><FooterLink href="#benefits">Benefits</FooterLink></li>
-              <li><FooterLink href="#terms">Terms & Conditions</FooterLink></li>
-              <li><FooterLink href="#privacy">Privacy Policy</FooterLink></li>
+              <li><FooterLink href="#categories">Our Collections</FooterLink></li>
+              <li><FooterLink href="#products">Featured Pieces</FooterLink></li>
+              <li><FooterLink href="#features">Heritage & Quality</FooterLink></li>
+              <li><FooterLink href="#how-it-works">Crafting Process</FooterLink></li>
             </ul>
           </div>
 
           <div>
-            <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Contact Us</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-              <div style={{ display: 'flex', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                <MapPin size={18} className="text-gold" />
-                <span>Kovilpatti</span>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                <Phone size={18} className="text-gold" />
-                <a href="tel:7598303666" style={{ color: 'inherit', textDecoration: 'none' }}>7598303666</a>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                <Mail size={18} className="text-gold" />
-                <a href="mailto:srikalyanikvp@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>srikalyanikvp@gmail.com</a>
-              </div>
-            </div>
+            <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Company</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <li><FooterLink href="#enroll">Bespoke Inquiry</FooterLink></li>
+              <li><FooterLink href="#terms">Terms of Service</FooterLink></li>
+              <li><FooterLink href="#privacy">Privacy Policy</FooterLink></li>
+            </ul>
           </div>
         </div>
 
@@ -53,7 +45,7 @@ const Footer = () => {
           color: 'var(--text-muted)',
           opacity: 0.8
         }}>
-          <span>© 2026 Sri Kalyani Jewellery Gold Saving. All rights reserved.</span>
+          <span>© 2026 Sri Kalyani Jewellery. All rights reserved.</span>
         </div>
       </div>
     </footer>

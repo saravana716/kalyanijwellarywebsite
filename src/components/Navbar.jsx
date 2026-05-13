@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search, ShoppingBag } from 'lucide-react';
+import logo from '../assets/logo_new.png';
 
 const Navbar = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,10 +16,10 @@ const Navbar = ({ activeSection }) => {
   }, []);
 
   const menuItems = [
-    { label: 'How It Works', id: 'how-it-works' },
-    { label: 'Benefits', id: 'benefits' },
-    { label: 'Terms', id: 'terms' },
-    { label: 'Privacy', id: 'privacy' }
+    { label: 'Shop', id: 'products' },
+    { label: 'Collections', id: 'categories' },
+    { label: 'Heritage', id: 'features' },
+    { label: 'Process', id: 'how-it-works' }
   ];
 
   const handleLinkClick = () => {
@@ -29,25 +30,26 @@ const Navbar = ({ activeSection }) => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled ? 'py-4 glass' : 'py-6 bg-transparent'
-      }`}
+      className="sticky top-0 left-0 right-0 z-[100] transition-all duration-500 py-4"
       style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingLeft: 'clamp(1rem, 5vw, 3rem)',
-        paddingRight: 'clamp(1rem, 5vw, 3rem)'
+        paddingRight: 'clamp(1rem, 5vw, 3rem)',
+        background: 'white',
+        boxShadow: '0 2px 20px rgba(0,0,0,0.05)',
+        borderBottom: '1px solid rgba(0,0,0,0.05)'
       }}
     >
       <a href="#" className="nav-logo" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-        <img src="/logo.png" alt="Sri Kalyani Logo" style={{ height: 'clamp(80px, 12vw, 120px)', width: 'auto' }} />
+        <img src={logo} alt="Sri Kalyani Logo" style={{ height: 'clamp(50px, 12vw, 100px)', width: 'auto' }} />
       </a>
 
       {/* Desktop Links */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }} className="nav-links-desktop">
         {menuItems.map((item) => {
-          const isActive = activeSection === item.id || (activeSection === 'privacy' && item.id === 'privacy') || (activeSection === 'terms' && item.id === 'terms');
+          const isActive = activeSection === item.id;
           
           return (
             <a
@@ -57,9 +59,9 @@ const Navbar = ({ activeSection }) => {
                 fontSize: '0.7rem',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: isActive ? 'var(--gold)' : 'var(--cream)',
+                color: isActive ? 'var(--gold)' : '#1A1814',
                 textDecoration: 'none',
-                opacity: isActive ? 1 : 0.8,
+                opacity: isActive ? 1 : 0.7,
                 transition: 'var(--transition)',
                 position: 'relative',
                 fontWeight: 500
@@ -92,12 +94,16 @@ const Navbar = ({ activeSection }) => {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+        <div className="nav-icons-desktop" style={{ display: 'flex', gap: '1.2rem', color: '#1A1814', opacity: 0.6 }}>
+          <Search size={20} cursor="pointer" />
+          <ShoppingBag size={20} cursor="pointer" />
+        </div>
         <a
-          href="#enroll"
+          href="#products"
           className="btn btn-primary nav-enroll-btn"
           style={{ padding: '0.7rem 1.8rem', fontSize: '0.65rem' }}
         >
-          Enroll Now
+          Shop Now
         </a>
 
         {/* Hamburger Icon */}
@@ -151,7 +157,7 @@ const Navbar = ({ activeSection }) => {
                   fontSize: '1.2rem',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  color: 'var(--cream)',
+                  color: '#1A1814',
                   textDecoration: 'none',
                   fontWeight: 400
                 }}
@@ -160,12 +166,12 @@ const Navbar = ({ activeSection }) => {
               </a>
             ))}
             <a
-              href="#enroll"
+              href="#products"
               className="btn btn-primary"
               onClick={handleLinkClick}
               style={{ marginTop: '2rem', textAlign: 'center' }}
             >
-              Enroll Now
+              Shop Collection
             </a>
           </motion.div>
         )}
@@ -197,6 +203,9 @@ const Navbar = ({ activeSection }) => {
           }
           .mobile-menu-toggle {
             display: block !important;
+          }
+          .nav-icons-desktop {
+            display: none !important;
           }
         }
         @media (max-width: 480px) {

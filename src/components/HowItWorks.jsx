@@ -1,26 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const steps = [
+const craftsmanshipSteps = [
   {
     num: '01',
-    title: 'Enroll & Register',
-    desc: 'Submit your valid Government ID (Aadhaar / PAN / Voter ID) and contact details to register for the scheme.'
+    title: 'Design & Concept',
+    desc: 'Our award-winning designers create detailed sketches, blending traditional motifs with contemporary elegance.'
   },
   {
     num: '02',
-    title: 'Monthly Installments',
-    desc: 'Pay your fixed monthly installment on time via Cash, UPI, or Bank Transfer. A receipt is issued for every payment.'
+    title: 'Material Selection',
+    desc: 'We hand-select the finest 22K gold and ethically sourced diamonds, ensuring each stone meets our rigorous standards.'
   },
   {
     num: '03',
-    title: 'Complete the Tenure',
-    desc: 'Once all installments are paid, you become eligible to redeem your chit value toward a jewellery purchase.'
+    title: 'Master Crafting',
+    desc: 'Our master craftsmen spend hundreds of hours hand-carving and setting each piece to achieve perfection.'
   },
   {
     num: '04',
-    title: 'Redeem Your Jewellery',
-    desc: 'Visit our store, choose your jewellery, and your scheme amount will be adjusted against the purchase. On-time savers may receive bonus benefits.'
+    title: 'Quality Check',
+    desc: 'Every piece undergoes a multi-stage quality audit and BIS Hallmarking before it is certified for our customers.'
   }
 ];
 
@@ -35,22 +35,23 @@ const HowItWorks = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="section-label">Process</span>
-            <h2 className="section-title" style={{ color: 'var(--cream)' }}>How the<br /><em>Scheme Works</em></h2>
+            <span className="section-label">Our Process</span>
+            <h2 className="section-title" style={{ color: 'var(--cream)' }}>The Art of<br /><em>Craftsmanship</em></h2>
             <p className="section-body" style={{ color: 'var(--text-muted)', maxWidth: '450px' }}>
-              Join our monthly Saving scheme, make regular installments, and at the end of your tenure redeem the full value toward any jewellery of your choice at our store.
+              From the initial sketch to the final polish, discover how we create timeless pieces that celebrate your most precious moments.
             </p>
+            <div style={{ marginTop: '2rem' }}>
+              <a href="#enroll" className="btn btn-outline">Request Custom Design</a>
+            </div>
           </motion.div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-            {steps.map((step, i) => (
+            {craftsmanshipSteps.map((step, i) => (
               <motion.div
                 key={step.num}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                onMouseOver={(e) => { e.currentTarget.style.background = 'var(--dark-3)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.background = 'var(--dark)'; }}
                 style={{ display: 'flex', gap: '2rem' }}
               >
                 <div style={{ 

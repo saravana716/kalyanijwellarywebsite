@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const EnrollmentForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -19,9 +19,9 @@ const EnrollmentForm = () => {
           className="container"
         >
           <CheckCircle2 size={80} className="text-gold" style={{ marginBottom: '2rem', margin: '0 auto' }} />
-          <h2 className="section-title" style={{ color: 'var(--cream)' }}>Registration <em>Submitted</em></h2>
+          <h2 className="section-title" style={{ color: 'var(--cream)' }}>Inquiry <em>Received</em></h2>
           <p style={{ color: 'var(--cream)', opacity: 0.8, maxWidth: '500px', margin: '0 auto' }}>
-            Thank you for your interest. Our verification team will review your banking details and get in touch with you shortly to finalize your enrollment.
+            Thank you for your interest in our bespoke collections. Our design consultant will reach out to you shortly to discuss your requirements in detail.
           </p>
           <button onClick={() => setSubmitted(false)} className="btn btn-outline" style={{ marginTop: '3rem' }}>
             Back to Home
@@ -41,10 +41,10 @@ const EnrollmentForm = () => {
 
       <div className="container" style={{ maxWidth: '800px' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <span className="section-label">Enrollment & Bank Verification</span>
-          <h2 className="section-title" style={{ color: 'var(--cream)' }}>Begin Your <em>Gold Journey</em></h2>
+          <span className="section-label">Custom Design</span>
+          <h2 className="section-title" style={{ color: 'var(--cream)' }}>Bespoke <em>Consultation</em></h2>
           <p style={{ color: 'var(--cream)', opacity: 0.8, maxWidth: '500px', margin: '0 auto' }}>
-            Register your interest and submit your bank details for initial scheme verification. Our team will contact you for the next steps.
+            Book a private consultation with our master designers to create a one-of-a-kind masterpiece tailored to your vision.
           </p>
         </div>
 
@@ -64,52 +64,32 @@ const EnrollmentForm = () => {
           <div className="form-grid">
             <FormGroup label="Email Address" type="email" placeholder="your@email.com" required />
             <div className="form-group">
-              <label>ID Proof Type</label>
+              <label>Jewelry Category</label>
               <select className="form-input">
-                <option value="">Select ID Type</option>
-                <option>Aadhaar Card</option>
-                <option>PAN Card</option>
-                <option>Voter ID</option>
-                <option>Driving License</option>
+                <option value="">Select Category</option>
+                <option>Engagement Ring</option>
+                <option>Wedding Set</option>
+                <option>Heritage Necklace</option>
+                <option>Bespoke Bracelet</option>
+                <option>Other</option>
               </select>
             </div>
           </div>
 
-          <div style={{ marginBottom: '3rem' }}>
-            <FormGroup label="Residential Address" placeholder="Your full address" required />
-          </div>
-
-          {/* Bank Verification Section */}
-          <div style={{ 
-            marginTop: '3rem', 
-            paddingTop: '2rem', 
-            borderTop: '1px solid rgba(96,40,54,0.1)' 
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-              <ShieldCheck size={20} className="text-gold" />
-              <h4 style={{ 
-                fontFamily: "'Lexend', sans-serif", 
-                fontSize: '1.2rem', 
-                color: 'var(--gold)',
-                fontWeight: 600
-              }}>
-                Bank Verification Details
-              </h4>
-            </div>
-            
-            <div className="form-grid" style={{ marginBottom: '1.5rem' }}>
-              <FormGroup label="Account Holder Name" placeholder="As per bank records" required />
-              <FormGroup label="Bank Name" placeholder="e.g. HDFC, SBI" required />
-            </div>
-
-            <div className="form-grid">
-              <FormGroup label="Account Number" placeholder="Enter account number" required />
-              <FormGroup label="IFSC Code" placeholder="Enter bank IFSC" required />
+          <div style={{ marginBottom: '2rem' }}>
+            <div className="form-group">
+              <label>Custom Requirements</label>
+              <textarea 
+                className="form-input" 
+                placeholder="Describe your dream jewelry (Metal type, gemstone preference, etc.)" 
+                rows="4"
+                style={{ resize: 'none' }}
+              />
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '3rem' }}>
-            Submit for Verification
+          <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
+            Request Consultation
           </button>
           
           <p style={{ 
@@ -119,7 +99,7 @@ const EnrollmentForm = () => {
             marginTop: '1.5rem',
             letterSpacing: '0.05em'
           }}>
-            Your data is encrypted and handled as per our Privacy Policy.
+            Our concierge team will contact you within 24 hours.
           </p>
         </motion.form>
       </div>

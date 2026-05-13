@@ -1,43 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CreditCard, Gift, ShieldCheck, RefreshCw, Scale, PhoneCall } from 'lucide-react';
+import { ShieldCheck, Award, Gem, Star, PenTool, Zap } from 'lucide-react';
 
-const benefits = [
+const heritageFeatures = [
   {
-    icon: <CreditCard className="text-gold" size={28} />,
-    title: 'Flexible Payments',
-    desc: 'Pay via Cash, UPI, or Bank Transfer. A receipt is issued for every installment for full transparency.'
+    icon: <Award className="text-gold" size={28} />,
+    title: 'BIS Hallmarked',
+    desc: 'Every piece of jewelry we sell carries the BIS Hallmark, ensuring the highest standards of gold purity.'
   },
   {
-    icon: <Gift className="text-gold" size={28} />,
-    title: 'Bonus Benefits',
-    desc: 'Members who complete all installments on time are eligible for exclusive scheme bonuses and discounts.'
+    icon: <Gem className="text-gold" size={28} />,
+    title: 'Certified Diamonds',
+    desc: 'Our diamonds are certified by international labs like GIA and IGI, guaranteeing quality and value.'
+  },
+  {
+    icon: <PenTool className="text-gold" size={28} />,
+    title: 'Custom Designs',
+    desc: 'Work with our master craftsmen to create bespoke pieces that tell your unique story.'
+  },
+  {
+    icon: <Star className="text-gold" size={28} />,
+    title: 'Award Winning',
+    desc: 'Recognized for our excellence in traditional temple jewelry and modern fusion designs.'
   },
   {
     icon: <ShieldCheck className="text-gold" size={28} />,
-    title: 'Secure & Trusted',
-    desc: 'Your personal and payment data is protected with high-end security measures and never shared without consent.'
+    title: 'Secure Shipping',
+    desc: 'Fully insured doorstep delivery with real-time tracking for your peace of mind.'
   },
   {
-    icon: <RefreshCw className="text-gold" size={28} />,
-    title: 'Easy Membership Transfer',
-    desc: 'Transfer your membership with a simple written request and valid ID, subject to management approval.'
-  },
-  {
-    icon: <Scale className="text-gold" size={28} />,
-    title: 'Transparent Pricing',
-    desc: 'Jewellery billed at prevailing gold rates with standard making charges — no hidden costs or surprises.'
-  },
-  {
-    icon: <PhoneCall className="text-gold" size={28} />,
-    title: 'Priority Support',
-    desc: 'Receive timely updates via SMS, WhatsApp, or call regarding your payments and upcoming offers.'
+    icon: <Zap className="text-gold" size={28} />,
+    title: 'Instant Valuation',
+    desc: 'Get transparent and fair market value for your old gold with our advanced testing technology.'
   }
 ];
 
 const Features = () => {
   return (
-    <section id="benefits" style={{ padding: '8rem 0' }}>
+    <section id="features" style={{ padding: '8rem 0', background: '#fff' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,19 +45,19 @@ const Features = () => {
           viewport={{ once: true }}
           style={{ marginBottom: '5rem', textAlign: 'center' }}
         >
-          <span className="section-label">Benefits</span>
-          <h2 className="section-title" style={{ color: 'var(--cream)' }}>Why Choose<br /><em>Our Scheme</em></h2>
+          <span className="section-label">Why Choose Us</span>
+          <h2 className="section-title" style={{ color: 'var(--cream)' }}>The Kalyani<br /><em>Heritage</em></h2>
         </motion.div>
 
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
           gap: '1px',
-          background: 'rgba(96, 40, 54, 0.05)'
+          background: 'rgba(96, 40, 54, 0.1)'
         }}>
-          {benefits.map((benefit, i) => (
+          {heritageFeatures.map((feature, i) => (
             <motion.div
-              key={benefit.title}
+              key={feature.title}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -74,7 +74,7 @@ const Features = () => {
               onMouseOver={(e) => { e.currentTarget.style.background = 'var(--dark-2)'; }}
               onMouseOut={(e) => { e.currentTarget.style.background = '#FFFFFF'; }}
             >
-              <div style={{ marginBottom: '1.5rem' }}>{benefit.icon}</div>
+              <div style={{ marginBottom: '1.5rem' }}>{feature.icon}</div>
               <h3 style={{ 
                 fontFamily: "'Lexend', sans-serif", 
                 fontSize: '1.5rem', 
@@ -82,10 +82,10 @@ const Features = () => {
                 marginBottom: '1rem',
                 fontWeight: 500
               }}>
-                {benefit.title}
+                {feature.title}
               </h3>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.8 }}>
-                {benefit.desc}
+                {feature.desc}
               </p>
             </motion.div>
           ))}
