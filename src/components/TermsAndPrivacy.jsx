@@ -58,116 +58,84 @@ const TermsAndPrivacy = () => {
           {activeTab === 'terms' ? (
             <div className="legal-content">
               <LegalSection title="1. Introduction">
-                Welcome to Sri Kalyani Jewellery Gold Saving. By enrolling in our jewellery Saving scheme, you agree to abide by the following terms and conditions.
+                Welcome to Sri Kalyani Jewellery. By using our website and services for jewelry inquiries and bespoke consultations, you agree to comply with and be bound by the following terms and conditions.
               </LegalSection>
               
-              <LegalSection title="2. Eligibility">
+              <LegalSection title="2. Product Information">
                 <ul>
-                  <li>The applicant must be 18 years of age or older.</li>
-                  <li>Valid Government ID proof (Aadhaar / PAN / Voter ID / Driving License) is mandatory.</li>
-                  <li>Address and contact details must be provided at the time of registration.</li>
+                  <li>All jewelry showcased on our website is subject to availability.</li>
+                  <li>Weights and dimensions provided are approximate and may vary slightly in the final handcrafted piece.</li>
+                  <li>Prices are not listed on the website as they are subject to change based on the prevailing market gold and gemstone rates at the time of inquiry.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="3. Saving scheme Details">
+              <LegalSection title="3. Authenticity & Quality">
                 <ul>
-                  <li>Monthly installment amount: ₹________</li>
-                  <li>Tenure: ______ months</li>
-                  <li>Total payable amount: ₹________</li>
-                  <li>The maturity amount can be redeemed only against a jewellery purchase at Sri Kalyani Jewellery.</li>
+                  <li>Sri Kalyani Jewellery guarantees that all gold jewelry is BIS Hallmarked with a valid HUID.</li>
+                  <li>All diamond and gemstone jewelry are accompanied by certificates from recognized laboratories (GIA, IGI, or equivalent).</li>
+                  <li>We maintain the highest standards of purity and craftsmanship in every piece.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="4. Payment Terms">
+              <LegalSection title="4. Bespoke & Custom Orders">
                 <ul>
-                  <li>Monthly installments must be paid on or before the due date.</li>
-                  <li>Payments can be made via Cash / UPI / Bank Transfer.</li>
-                  <li>A receipt will be issued for every payment.</li>
-                  <li>Late payments may attract penalty charges as decided by management.</li>
+                  <li>Custom designs (Bespoke) require a detailed consultation and approval of the design blueprint.</li>
+                  <li>A formal quotation will be provided after the design finalization.</li>
+                  <li>Custom orders may require an advance payment to commence the crafting process.</li>
+                  <li>Timelines for bespoke pieces are shared during the consultation and may vary based on complexity.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="5. Default & Cancellation">
+              <LegalSection title="5. Return & Exchange Policy">
                 <ul>
-                  <li>If a member fails to pay installments for consecutive months, the membership may be cancelled.</li>
-                  <li>In case of voluntary cancellation, the paid amount will be refunded after deducting applicable charges (if any).</li>
-                  <li>Refund processing time: ______ working days.</li>
+                  <li>Returns and exchanges are subject to inspection and must be accompanied by the original invoice and certificates.</li>
+                  <li>Custom-made pieces may have specific terms regarding buy-back and exchange values.</li>
+                  <li>For standard collections, exchange policies follow current market standards and company norms.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="6. Maturity & Redemption">
+              <LegalSection title="6. User Inquiries">
                 <ul>
-                  <li>On completion of all installments, the member is eligible to purchase jewellery equal to the chit value.</li>
-                  <li>No cash refund will be provided upon maturity.</li>
-                  <li>The scheme benefits (bonus/discount if applicable) apply only if all payments are made on time.</li>
+                  <li>Submitting an inquiry through our forms does not constitute a financial transaction.</li>
+                  <li>Our team will contact you via your provided phone or email to discuss product details and pricing.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="7. Gold Rate & Making Charges">
-                <ul>
-                  <li>Jewellery will be billed based on the prevailing gold rate on the date of purchase.</li>
-                  <li>Making charges and GST will be applicable as per current norms.</li>
-                  <li>Scheme bonus/benefits (if any) will be adjusted accordingly.</li>
-                </ul>
-              </LegalSection>
-
-              <LegalSection title="8. Transfer of Membership">
-                <ul>
-                  <li>Membership transfer is allowed only with a written request and valid ID proof.</li>
-                  <li>Management reserves the right to approve or reject transfer requests.</li>
-                </ul>
-              </LegalSection>
-
-              <LegalSection title="9. Company Rights">
-                <ul>
-                  <li>Sri Kalyani Jewellery Gold Saving reserves the right to modify scheme terms with prior notice.</li>
-                  <li>In case of disputes, the decision of management shall be final. All disputes are subject to local jurisdiction.</li>
-                </ul>
+              <LegalSection title="7. Intellectual Property">
+                All designs, images, and content on this website are the intellectual property of Sri Kalyani Jewellery. Unauthorized use or reproduction is strictly prohibited.
               </LegalSection>
             </div>
           ) : (
             <div className="legal-content">
-              <LegalSection title="1. Information We Collect">
-                We may collect: Name, Contact number, Address, Government ID details, Payment details, and Transaction history.
+              <LegalSection title="1. Information Collection">
+                We collect personal information such as Name, Contact Number, Email, and jewelry preferences when you request a consultation or submit an inquiry.
               </LegalSection>
 
-              <LegalSection title="2. Purpose of Data Collection">
-                Your information is collected to:
+              <LegalSection title="2. Usage of Information">
+                Your information is used exclusively to:
                 <ul>
-                  <li>Register yourself in the Saving scheme</li>
-                  <li>Maintain payment records</li>
-                  <li>Communicate scheme updates</li>
-                  <li>Process maturity benefits</li>
-                  <li>Comply with legal requirements</li>
+                  <li>Provide personalized jewelry consultations.</li>
+                  <li>Answer product-specific inquiries and provide price quotes.</li>
+                  <li>Update you on our latest collections and heritage events.</li>
+                  <li>Improve our customer service experience.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="3. Data Protection">
+              <LegalSection title="3. Data Security">
                 <ul>
-                  <li>We ensure reasonable security measures to protect your data.</li>
-                  <li>Your information will not be sold or shared with third parties without consent, except where required by law.</li>
+                  <li>We implement industry-standard security measures to protect your personal data from unauthorized access.</li>
+                  <li>Your data is never sold or shared with third-party marketing agencies.</li>
                 </ul>
               </LegalSection>
 
-              <LegalSection title="4. Communication">
-                <ul>
-                  <li>Members may receive SMS/WhatsApp/Call updates regarding payments, offers, and scheme details.</li>
-                  <li>You may opt out of promotional communication upon request.</li>
-                </ul>
+              <LegalSection title="4. Consultation Privacy">
+                Bespoke design discussions and shared inspiration images are treated with the highest confidentiality to protect your unique vision.
               </LegalSection>
 
-              <LegalSection title="5. Data Retention">
-                Customer records will be retained in accordance with applicable laws and business requirements.
-              </LegalSection>
-
-              <LegalSection title="6. Changes to Privacy Policy">
-                Sri Kalyani Jewellery Gold Saving reserves the right to update this Privacy Policy at any time. Updated policies will be communicated through official channels.
-              </LegalSection>
-
-              <LegalSection title="7. Contact Information">
-                For any queries or concerns regarding Terms & Conditions or Privacy Policy, please contact:<br/>
-                <strong>Sri Kalyani Jewellery Gold Saving</strong><br/>
-                Address: Kovilpatti<br/>
+              <LegalSection title="5. Contact for Compliance">
+                For any legal or privacy-related queries, please contact:<br/>
+                <strong>Sri Kalyani Jewellery</strong><br/>
+                Address: Kovilpatti, Tamil Nadu<br/>
                 Phone: 7598303666<br/>
                 Email: srikalyanikvp@gmail.com
               </LegalSection>
