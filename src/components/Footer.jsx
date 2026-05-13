@@ -28,7 +28,7 @@ const Footer = () => {
             <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Follow Us</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
               <li>
-                <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+                <a href="https://www.instagram.com/srikalyani_jewellery/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
                   <FaInstagram size={18} /> Instagram
                 </a>
               </li>
