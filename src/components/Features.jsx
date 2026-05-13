@@ -46,7 +46,7 @@ const Features = () => {
           style={{ marginBottom: '5rem', textAlign: 'center' }}
         >
           <span className="section-label">Why Choose Us</span>
-          <h2 className="section-title" style={{ color: 'var(--cream)' }}>The Kalyani<br /><em>Heritage</em></h2>
+          <h2 className="section-title" style={{ color: 'var(--cream)' }}>The Sri Kalyani Jewellery</h2>
         </motion.div>
 
         <div style={{ 

@@ -42,7 +42,7 @@ const EnrollmentForm = () => {
       <div className="container" style={{ maxWidth: '800px' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <span className="section-label">Custom Design</span>
-          <h2 className="section-title" style={{ color: 'var(--cream)' }}>Bespoke <em>Consultation</em></h2>
+          <h2 className="section-title" style={{ color: 'var(--cream)' }}><em>Consultation</em></h2>
           <p style={{ color: 'var(--cream)', opacity: 0.8, maxWidth: '500px', margin: '0 auto' }}>
             Book a private consultation with our master designers to create a one-of-a-kind masterpiece tailored to your vision.
           </p>

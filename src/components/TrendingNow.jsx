@@ -59,7 +59,7 @@ const TrendingNow = () => {
           marginBottom: '2rem',
           fontWeight: 600
         }}>
-          Limited Collection
+          {/* Limited Collection */}
         </span>
         <h2 style={{ 
           fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
