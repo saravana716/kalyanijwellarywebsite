@@ -4,70 +4,80 @@ import l1 from '../assets/l1.jpeg';
 
 const TrendingNow = () => {
   return (
-    <section id="trending" style={{ padding: '0', background: 'white', overflow: 'hidden' }}>
-      <div style={{ 
-        display: 'flex', 
-        flexWrap: 'wrap',
-        minHeight: '600px'
+    <section id="trending" style={{ 
+      position: 'relative',
+      height: '600px',
+      width: '100%',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      color: 'white'
+    }}>
+      {/* Background Image */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 1
       }}>
-        {/* Left Side: Full Cover Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+        <img 
+          src={l1} 
+          alt="Jewelry Banner" 
           style={{ 
-            flex: '1 1 500px',
-            position: 'relative',
-            minHeight: '400px'
-          }}
-        >
-          <img 
-            src={l1} 
-            alt="Limited Edition Piece" 
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              objectFit: 'cover',
-              position: 'absolute',
-              inset: 0
-            }} 
-          />
-        </motion.div>
-
-        {/* Right Side: Content */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          style={{ 
-            flex: '1 1 500px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            padding: '10% 8%',
-            background: '#F9F7F2'
-          }}
-        >
-          <span className="section-label" style={{ marginBottom: '0rem' }}>Limited Edition</span>
-          <h2 className="section-title" style={{ fontSize: '3.5rem', marginBottom: '2rem', lineHeight: 1.1 }}>
-            {/* The Royal <br/><em>Choker</em> */}
-          </h2>
-          <p style={{ 
-            color: 'var(--text-muted)', 
-            lineHeight: 1.8, 
-            marginBottom: '2rem', 
-            fontSize: '1.1rem',
-            maxWidth: '500px'
-          }}>
-            Jewels For Every Occasion
-From weddings to everyday moments, our jewellery shines with you.
-
-          </p>
-          <div>
-            <a href="#products" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem' }}>Explore Collection</a>
-          </div>
-        </motion.div>
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover' 
+          }} 
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(0,0,0,0.4)', // Dark overlay for text readability
+          zIndex: 2
+        }} />
       </div>
+
+      {/* Content Overlay */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        style={{ 
+          position: 'relative', 
+          zIndex: 3,
+          padding: '0 2rem',
+          maxWidth: '800px'
+        }}
+      >
+        <span style={{ 
+          display: 'block',
+          fontSize: '0.8rem', 
+          textTransform: 'uppercase', 
+          letterSpacing: '0.3em', 
+          color: 'var(--gold-pale)',
+          marginBottom: '2rem',
+          fontWeight: 600
+        }}>
+          Limited Collection
+        </span>
+        <h2 style={{ 
+          fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+          lineHeight: 1.2, 
+          fontWeight: 400,
+          marginBottom: '2rem'
+        }}>
+          Jewels For Every Occasion
+        </h2>
+        <p style={{ 
+          fontSize: '1.2rem', 
+          lineHeight: 1.8, 
+          fontWeight: 300,
+          opacity: 0.9
+        }}>
+          From weddings to everyday moments, our jewellery shines with you.
+        </p>
+      </motion.div>
     </section>
   );
 };
