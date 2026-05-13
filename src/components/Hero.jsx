@@ -48,8 +48,8 @@ const Hero = () => {
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <a href="#products" className="btn btn-primary">Shop Collection</a>
-            <a href="#enroll" className="btn btn-outline">Consult Designer</a>
+            <a href="#products" className="btn btn-primary">Explore Silver idols</a>
+            {/* <a href="#enroll" className="btn btn-outline">Consult Designer</a> */}
           </div>
         </motion.div>
 

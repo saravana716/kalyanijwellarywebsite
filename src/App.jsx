@@ -9,7 +9,8 @@ import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import TermsAndPrivacy from './components/TermsAndPrivacy';
 import EnrollmentForm from './components/EnrollmentForm';
-import StoreVisit from './components/StoreVisit';
+import AboutUs from './components/AboutUs';
+import SacredSilver from './components/SacredSilver';
 import Footer from './components/Footer';
 
 function App() {
@@ -49,10 +50,11 @@ function App() {
         <ProductCategories />
         <ProductShowcase />
         <TrendingNow />
+        <SacredSilver />
         <Features />
         <HowItWorks />
         <EnrollmentForm />
-        <StoreVisit />
+        <AboutUs />
         <TermsAndPrivacy />
       </main>
       <Footer />

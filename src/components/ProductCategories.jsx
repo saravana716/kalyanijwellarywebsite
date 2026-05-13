@@ -1,15 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ringsImg from '../assets/redesign/rings.png';
-import necklacesImg from '../assets/redesign/necklaces.png';
-import earringsImg from '../assets/redesign/earrings.png';
-import banglesImg from '../assets/redesign/bangles.png';
+import g1 from '../assets/g1.jpeg';
+import g2 from '../assets/g2.jpeg';
+import g3 from '../assets/g3.jpeg';
+import g4 from '../assets/g4.jpeg';
+import g5 from '../assets/g5.jpeg';
+import g6 from '../assets/g6.jpeg';
 
 const categories = [
-  { id: 1, name: 'Exquisite Rings', image: ringsImg, count: '120+ Designs' },
-  { id: 2, name: 'Royal Necklaces', image: necklacesImg, count: '85+ Designs' },
-  { id: 3, name: 'Elegant Earrings', image: earringsImg, count: '200+ Designs' },
-  { id: 4, name: 'Heritage Bangles', image: banglesImg, count: '50+ Designs' },
+  { id: 1, name: 'Traditional Collection', image: g1, count: '150+ Designs' },
+  { id: 2, name: 'Royal Collection', image: g2, count: '85+ Designs' },
+  { id: 3, name: 'Elegant Collection', image: g3, count: '200+ Designs' },
+  { id: 4, name: 'Heritage Collection', image: g4, count: '120+ Designs' },
+  { id: 5, name: 'Bespoke Collection', image: g5, count: '90+ Designs' },
+  { id: 6, name: 'Signature Collection', image: g6, count: '300+ Designs' },
 ];
 
 const ProductCategories = () => {
@@ -57,17 +61,14 @@ const ProductCategories = () => {
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(26, 24, 20, 0.8) 0%, transparent 60%)',
+                background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
-                padding: '2rem',
+                padding: '1.5rem',
                 color: 'white'
               }}>
-                <span style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--gold-pale)' }}>
-                  {cat.count}
-                </span>
-                <h3 style={{ fontSize: '1.5rem', marginTop: '0.5rem', fontWeight: 500 }}>{cat.name}</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 400, letterSpacing: '0.05em' }}>{cat.name}</h3>
               </div>
             </motion.div>
           ))}

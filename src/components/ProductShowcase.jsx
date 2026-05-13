@@ -1,16 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ringImg from '../assets/redesign/product_ring.png';
-import necklaceImg from '../assets/redesign/product_necklace.png';
-import bangleImg from '../assets/redesign/bangles.png';
+import m1 from '../assets/m1.jpeg';
+import m2 from '../assets/m2.jpeg';
+import m3 from '../assets/m3.jpeg';
 
 const products = [
-  { id: 1, name: 'Solitaire Diamond Ring', category: 'Rings', image: ringImg, featured: true },
-  { id: 2, name: 'Royal Filigree Necklace', category: 'Necklaces', image: necklaceImg, featured: false },
-  { id: 3, name: 'Antique Gold Bangles', category: 'Bangles', image: bangleImg, featured: true },
-  { id: 4, name: 'Classic Gold Band', category: 'Rings', image: ringImg, featured: false },
-  { id: 5, name: 'Temple Work Choker', category: 'Necklaces', image: necklaceImg, featured: false },
-  { id: 6, name: 'Bridal Bangle Set', category: 'Bangles', image: bangleImg, featured: true },
+  { id: 1, name: 'Women Collection', category: 'Fine Jewelry', image: m1, featured: true },
+  { id: 2, name: 'Men Collection', category: 'Accessories', image: m2, featured: true },
+  { id: 3, name: 'Kids Collection', category: 'Heritage', image: m3, featured: true },
 ];
 
 const ProductShowcase = () => {
@@ -88,14 +85,6 @@ const ProductShowcase = () => {
                 </span>
                 <h3 style={{ fontSize: '1.2rem', margin: '0.5rem 0', color: 'var(--cream)' }}>{product.name}</h3>
               </div>
-
-              <a 
-                href="#enroll"
-                className="btn btn-outline" 
-                style={{ width: '100%', padding: '0.8rem', fontSize: '0.7rem', textDecoration: 'none' }}
-              >
-                Inquire Now
-              </a>
             </motion.div>
           ))}
         </div>
