@@ -10,6 +10,7 @@ const Navbar = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const { cart, favorites, user, logout } = useCart();
   const navigate = useNavigate();
@@ -123,7 +124,12 @@ const Navbar = ({ activeSection }) => {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <div className="nav-icons-desktop" style={{ display: 'flex', gap: '1.2rem', color: '#1A1814', opacity: 0.8, alignItems: 'center' }}>
-            <Search size={20} cursor="pointer" className="nav-icon" />
+            <Search 
+              size={20} 
+              cursor="pointer" 
+              className="nav-icon" 
+              onClick={() => setIsSearchOpen(true)}
+            />
             
             <div 
               style={{ position: 'relative', cursor: 'pointer' }} 
@@ -178,6 +184,58 @@ const Navbar = ({ activeSection }) => {
           </button>
         </div>
       </motion.nav>
+
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              background: 'white',
+              padding: '2rem',
+              zIndex: 1000,
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2rem'
+            }}
+          >
+            <div style={{ position: 'relative', width: '100%', maxWidth: '800px' }}>
+              <input
+                autoFocus
+                type="text"
+                placeholder="Search for jewelry, collections..."
+                style={{
+                  width: '100%',
+                  padding: '1.5rem 4rem',
+                  fontSize: '1.2rem',
+                  border: '1px solid #eee',
+                  outline: 'none',
+                  borderRadius: '4px',
+                  fontFamily: 'Lexend'
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    setIsSearchOpen(false);
+                    navigate('/#products');
+                  }
+                }}
+              />
+              <Search style={{ position: 'absolute', left: '1.5rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--gold)' }} />
+              <X 
+                style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer' }} 
+                onClick={() => setIsSearchOpen(false)}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
 

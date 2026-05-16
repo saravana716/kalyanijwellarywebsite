@@ -33,7 +33,7 @@ const SacredSilver = () => {
               perfect for pooja rooms, weddings, housewarming gifts, and festive occasions. 
               Crafted with purity and devotion, every piece reflects divine artistry and tradition.
             </p>
-            <button className="btn btn-primary">Explore Silver Idols</button>
+            <a href="#products" className="btn btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Explore Silver Idols</a>
           </motion.div>
 
           <motion.div

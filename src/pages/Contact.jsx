@@ -7,19 +7,19 @@ const Contact = () => {
     {
       icon: <MapPin size={24} />,
       title: "Visit Our Store",
-      detail: "23, 5th Cross St, Lake Area, Nungambakkam, Chennai, Tamil Nadu 600034",
+      detail: "Kovilpatti, Tamil Nadu",
       subDetail: "Centrally located in the heart of the city."
     },
     {
       icon: <Phone size={24} />,
       title: "Call Us",
-      detail: "+91 98765 43210",
+      detail: "+91 98944 62422 | 7598303666",
       subDetail: "Available Mon-Sat, 10:00 AM - 8:00 PM"
     },
     {
       icon: <Mail size={24} />,
       title: "Email Us",
-      detail: "support@srikalyani.com",
+      detail: "srikalyanijewellerykvp@gmail.com",
       subDetail: "We typically respond within 24 hours."
     },
     {

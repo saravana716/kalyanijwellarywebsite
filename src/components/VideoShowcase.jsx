@@ -36,8 +36,8 @@ const VideoShowcase = () => {
               Step into a world where heritage meets contemporary elegance. Our master craftsmen pour generations of wisdom into every curve and setting, creating pieces that aren't just jewelry, but legacies.
             </p>
             <div className="button-group">
-              <button className="btn btn-primary">EXPLORE COLLECTIONS</button>
-              <button className="btn btn-outline">OUR LEGACY</button>
+              <a href="#categories" className="btn btn-primary" style={{ textDecoration: 'none' }}>EXPLORE COLLECTIONS</a>
+              <a href="#about" className="btn btn-outline" style={{ textDecoration: 'none' }}>OUR LEGACY</a>
             </div>
           </motion.div>
         </div>
@@ -54,7 +54,7 @@ const VideoShowcase = () => {
         }
 
         .video-column {
-          flex: 1.2;
+          flex: 0.8;
           position: relative;
           overflow: hidden;
         }
@@ -62,7 +62,8 @@ const VideoShowcase = () => {
         .bg-video {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
+          background: #000;
         }
 
         .video-overlay-gradient {
@@ -77,7 +78,7 @@ const VideoShowcase = () => {
         }
 
         .content-column {
-          flex: 1;
+          flex: 1.2;
           display: flex;
           align-items: center;
           background: #0f0f0f;

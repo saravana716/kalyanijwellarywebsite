@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import storeImg from '../assets/banner1.jpeg';
 
 const AboutUs = () => {
@@ -53,7 +54,7 @@ const AboutUs = () => {
                 we have kept to every customer who walks through our doors.
               </p>
             </div>
-            <button className="btn btn-primary">Explore Our Journey</button>
+            <Link to="/contact" className="btn btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Explore Our Journey</Link>
           </motion.div>
         </div>
       </div>

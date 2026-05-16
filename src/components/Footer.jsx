@@ -33,7 +33,7 @@ const Footer = () => {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                 <Phone size={16} style={{ color: 'var(--gold-light)', flexShrink: 0 }} />
-                <a href="tel:+919894462422" style={{ color: 'inherit', textDecoration: 'none' }}>+91 98944 62422</a>
+                <a href="tel:+919894462422" style={{ color: 'inherit', textDecoration: 'none' }}>+91 98944 62422 | 7598303666</a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                 <Mail size={16} style={{ color: 'var(--gold-light)', flexShrink: 0 }} />
@@ -55,7 +55,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+                <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
                   <FaFacebookF size={16} /> Facebook
                 </a>
               </li>
