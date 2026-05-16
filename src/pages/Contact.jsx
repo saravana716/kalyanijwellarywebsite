@@ -130,7 +130,7 @@ const Contact = () => {
         >
           <iframe 
             title="Sri Kalyani Store Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7009995755325!2d80.23773537482079!3d13.054694413051616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52665c59d39c4b%3A0x2cf45468bc3b3b23!2s23%2C%205th%20Cross%20St%2C%20Lake%20Area%2C%20Nungambakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600034!5e0!3m2!1sen!2sin!4v1778934391174!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.769364946349!2d77.868461!3d9.175265699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06b30064024161%3A0x174a22389af1f4fe!2sSri%20Kalyani%20Jewellery!5e0!3m2!1sen!2sin!4v1778937098867!5m2!1sen!2sin"
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 

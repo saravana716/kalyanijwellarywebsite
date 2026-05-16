@@ -445,7 +445,7 @@ const StepAddToCart = ({ cart, onNext, subtotal, gst, total, removeFromCart, upd
 const StepEnterDetails = ({ formData, setFormData, onNext }) => (
   <div className="flow-card">
     <div className="flow-card-title">
-      <div className="step-tag">3</div> Delivery Details
+      <div className="step-tag">3</div> Customer Details
     </div>
     <div style={{ maxWidth: '650px', margin: '0 auto' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>

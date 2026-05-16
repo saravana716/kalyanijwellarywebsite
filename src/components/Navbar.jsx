@@ -167,6 +167,22 @@ const Navbar = ({ activeSection }) => {
             Shop Now
           </Link>
 
+          {/* Mobile Icons */}
+          <div className="nav-icons-mobile" style={{ display: 'none', gap: '1rem', color: '#1A1814', alignItems: 'center', marginRight: '0.5rem' }}>
+            <Search size={22} onClick={() => setIsSearchOpen(true)} />
+            <Link to="/wishlist" style={{ color: 'inherit' }}>
+                <Heart size={22} color={favorites.length > 0 ? 'var(--gold)' : 'currentColor'} fill={favorites.length > 0 ? 'var(--gold)' : 'none'} />
+            </Link>
+            <div style={{ position: 'relative' }} onClick={() => navigate('/checkout?step=2')}>
+              <ShoppingBag size={22} />
+              {cart.length > 0 && (
+                <span style={{ position: 'absolute', top: '-8px', right: '-8px', background: 'var(--gold)', color: 'white', fontSize: '0.6rem', padding: '0.1rem 0.4rem', borderRadius: '10px' }}>
+                  {cart.length}
+                </span>
+              )}
+            </div>
+          </div>
+
           {/* Hamburger Icon */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -340,6 +356,9 @@ const Navbar = ({ activeSection }) => {
           }
           .nav-icons-desktop {
             display: none !important;
+          }
+          .nav-icons-mobile {
+            display: flex !important;
           }
         }
         @media (max-width: 480px) {
