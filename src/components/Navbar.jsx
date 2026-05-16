@@ -23,14 +23,74 @@ const Navbar = ({ activeSection }) => {
   }, []);
 
   const menuItems = [
-    { label: 'Shop', id: 'products' },
-    { label: 'Collections', id: 'categories' },
-    { label: 'Heritage', id: 'features' },
-    { label: 'Process', id: 'how-it-works' }
+    { label: 'Shop', id: 'products', type: 'anchor' },
+    { label: 'Collections', id: 'categories', type: 'anchor' },
+    { label: 'Heritage', id: 'features', type: 'anchor' },
+    { label: 'Process', id: 'how-it-works', type: 'anchor' },
+    { label: 'Contact', path: '/contact', type: 'route' }
   ];
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
+  };
+
+  const NavLink = ({ item }) => {
+    const isActive = activeSection === item.id;
+    const style = {
+      fontSize: '0.7rem',
+      letterSpacing: '0.15em',
+      textTransform: 'uppercase',
+      color: isActive ? 'var(--gold)' : '#1A1814',
+      textDecoration: 'none',
+      opacity: isActive ? 1 : 0.7,
+      transition: 'var(--transition)',
+      position: 'relative',
+      fontWeight: 500,
+      cursor: 'pointer'
+    };
+
+    if (item.type === 'route') {
+      return (
+        <Link 
+          to={item.path} 
+          style={style}
+          onClick={handleLinkClick}
+          onMouseOver={(e) => { e.target.style.opacity = '1'; e.target.style.color = 'var(--gold)'; }}
+          onMouseOut={(e) => { e.target.style.opacity = '0.7'; e.target.style.color = '#1A1814'; }}
+        >
+          {item.label}
+        </Link>
+      );
+    }
+
+    return (
+      <a
+        href={`/#${item.id}`}
+        style={style}
+        onMouseOver={(e) => { e.target.style.opacity = '1'; e.target.style.color = 'var(--gold)'; }}
+        onMouseOut={(e) => { 
+          if (!isActive) {
+            e.target.style.opacity = '0.7'; 
+            e.target.style.color = '#1A1814'; 
+          }
+        }}
+      >
+        {item.label}
+        {isActive && (
+          <motion.div
+            layoutId="activeNav"
+            style={{
+              position: 'absolute',
+              bottom: '-4px',
+              left: 0,
+              right: 0,
+              height: '2px',
+              background: 'var(--gold)'
+            }}
+          />
+        )}
+      </a>
+    );
   };
 
   return (
@@ -56,49 +116,9 @@ const Navbar = ({ activeSection }) => {
 
         {/* Desktop Links */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }} className="nav-links-desktop">
-          {menuItems.map((item) => {
-            const isActive = activeSection === item.id;
-            
-            return (
-              <a
-                key={item.id}
-                href={`/#${item.id}`}
-                style={{
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  color: isActive ? 'var(--gold)' : '#1A1814',
-                  textDecoration: 'none',
-                  opacity: isActive ? 1 : 0.7,
-                  transition: 'var(--transition)',
-                  position: 'relative',
-                  fontWeight: 500
-                }}
-                onMouseOver={(e) => { e.target.style.opacity = '1'; e.target.style.color = 'var(--gold)'; }}
-                onMouseOut={(e) => { 
-                  if (!isActive) {
-                    e.target.style.opacity = '0.8'; 
-                    e.target.style.color = 'var(--cream)'; 
-                  }
-                }}
-              >
-                {item.label}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNav"
-                    style={{
-                      position: 'absolute',
-                      bottom: '-4px',
-                      left: 0,
-                      right: 0,
-                      height: '2px',
-                      background: 'var(--gold)'
-                    }}
-                  />
-                )}
-              </a>
-            );
-          })}
+          {menuItems.map((item) => (
+            <NavLink key={item.label} item={item} />
+          ))}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -187,21 +207,39 @@ const Navbar = ({ activeSection }) => {
             }}
           >
             {menuItems.map((item) => (
-              <a
-                key={item.id}
-                href={`/#${item.id}`}
-                onClick={handleLinkClick}
-                style={{
-                  fontSize: '1.2rem',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: '#1A1814',
-                  textDecoration: 'none',
-                  fontWeight: 400
-                }}
-              >
-                {item.label}
-              </a>
+              item.type === 'route' ? (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  onClick={handleLinkClick}
+                  style={{
+                    fontSize: '1.2rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: '#1A1814',
+                    textDecoration: 'none',
+                    fontWeight: 400
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={`/#${item.id}`}
+                  onClick={handleLinkClick}
+                  style={{
+                    fontSize: '1.2rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: '#1A1814',
+                    textDecoration: 'none',
+                    fontWeight: 400
+                  }}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <Link
               to="/checkout?step=1"

@@ -35,7 +35,7 @@ const PaymentFlow = () => {
   const [formData, setFormData] = useState({
     fullName: user?.name || 'Ramesh Kumar',
     mobileNumber: user?.phone || '+91 98765 43210',
-    address: '23, 5th Cross Street, T. Nagar, Chennai - 600017, Tamil Nadu',
+    address: '23, 5th Cross St, Lake Area, Nungambakkam, Chennai, Tamil Nadu 600034',
     email: user?.email || 'ramesh.kumar@email.com'
   });
 
