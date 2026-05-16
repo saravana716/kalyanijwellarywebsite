@@ -7,16 +7,20 @@ import g4 from '../assets/g4.jpeg';
 import g5 from '../assets/g5.jpeg';
 import g6 from '../assets/g6.jpeg';
 
+import { useNavigate } from 'react-router-dom';
+
 const categories = [
-  { id: 1, name: 'Traditional Collection', image: g1, count: '150+ Designs' },
-  { id: 2, name: 'Royal Collection', image: g2, count: '85+ Designs' },
-  { id: 3, name: 'Elegant Collection', image: g3, count: '200+ Designs' },
-  { id: 4, name: 'Heritage Collection', image: g4, count: '120+ Designs' },
-  { id: 5, name: 'Bespoke Collection', image: g5, count: '90+ Designs' },
-  { id: 6, name: 'Signature Collection', image: g6, count: '300+ Designs' },
+  { id: 1, name: 'Traditional Collection', image: g1, price: '45,000' },
+  { id: 2, name: 'Royal Collection', image: g2, price: '85,000' },
+  { id: 3, name: 'Elegant Collection', image: g3, price: '25,000' },
+  { id: 4, name: 'Heritage Collection', image: g4, price: '65,000' },
+  { id: 5, name: 'Bespoke Collection', image: g5, price: '1,20,000' },
+  { id: 6, name: 'Signature Collection', image: g6, price: '55,000' },
 ];
 
 const ProductCategories = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="categories" style={{ padding: '8rem 0', background: 'var(--dark-2)' }}>
       <div className="container">
@@ -36,12 +40,11 @@ const ProductCategories = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              onClick={() => navigate(`/collection/${cat.name.replace(/\s+/g, '-')}`)}
               style={{
                 position: 'relative',
                 height: '400px',
-                borderRadius: '4px',
+                borderRadius: '8px',
                 overflow: 'hidden',
                 cursor: 'pointer',
                 boxShadow: '0 15px 35px rgba(0,0,0,0.08)'
@@ -61,14 +64,26 @@ const ProductCategories = () => {
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)',
+                background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
-                padding: '1.5rem',
+                padding: '2rem',
                 color: 'white'
               }}>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 400, letterSpacing: '0.05em' }}>{cat.name}</h3>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 500, letterSpacing: '0.05em', marginBottom: '0.4rem' }}>{cat.name}</h3>
+                <span style={{ fontSize: '0.8rem', opacity: 0.9, letterSpacing: '0.1em' }}>Starting from ₹{cat.price}</span>
+                <div style={{ 
+                  marginTop: '1.2rem', 
+                  fontSize: '0.7rem', 
+                  textTransform: 'uppercase', 
+                  letterSpacing: '0.2em', 
+                  borderBottom: '1px solid rgba(255,255,255,0.3)',
+                  width: 'fit-content',
+                  paddingBottom: '0.3rem'
+                }}>
+                  Explore Collection
+                </div>
               </div>
             </motion.div>
           ))}

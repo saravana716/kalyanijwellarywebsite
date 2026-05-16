@@ -25,6 +25,28 @@ const Footer = () => {
           </div>
 
           <div>
+            <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Contact Us</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.8rem' }}>
+                <MapPin size={18} style={{ color: 'var(--gold-light)', flexShrink: 0 }} />
+                <span>Sri Kalyani Jewellery Mart,<br/>Kovilpatti, Tamil Nadu</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <Phone size={16} style={{ color: 'var(--gold-light)', flexShrink: 0 }} />
+                <a href="tel:+919894462422" style={{ color: 'inherit', textDecoration: 'none' }}>+91 98944 62422</a>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <Mail size={16} style={{ color: 'var(--gold-light)', flexShrink: 0 }} />
+                <a href="mailto:srikalyanijewellerykvp@gmail.com" style={{ color: 'inherit', textDecoration: 'none', fontSize: '0.75rem' }}>srikalyanijewellerykvp@gmail.com</a>
+              </li>
+              <li style={{ marginTop: '0.5rem', fontSize: '0.75rem', opacity: 0.8 }}>
+                <strong>Working Hours:</strong><br/>
+                10:00 AM – 8:30 PM
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h4 style={{ color: 'var(--gold)', letterSpacing: '0.2em', fontSize: '0.75rem', textTransform: 'uppercase', marginBottom: '2rem', fontWeight: 600 }}>Follow Us</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
               <li>
