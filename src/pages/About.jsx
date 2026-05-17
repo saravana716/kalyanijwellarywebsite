@@ -85,13 +85,13 @@ const About = () => {
           zIndex: 1
         }} />
         <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          <motion.img 
+          {/* <motion.img 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             src={logo} 
             alt="Sri Kalyani Logo" 
             style={{ height: '120px', marginBottom: '2rem', filter: 'brightness(0) invert(1)' }} 
-          />
+          /> */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
