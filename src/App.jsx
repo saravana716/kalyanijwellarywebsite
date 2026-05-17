@@ -7,6 +7,7 @@ import PaymentFlow from './pages/PaymentFlow';
 import CollectionPage from './pages/CollectionPage';
 import FavoritesPage from './pages/FavoritesPage';
 import Contact from './pages/Contact';
+import About from './pages/About';
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/collection/:categoryName" element={<CollectionPage />} />
               <Route path="/wishlist" element={<FavoritesPage />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </main>
           <Footer />

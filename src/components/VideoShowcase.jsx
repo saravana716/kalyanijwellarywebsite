@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import videoSrc from '../assets/video.mp4';
 
 const VideoShowcase = () => {
@@ -37,7 +38,7 @@ const VideoShowcase = () => {
             </p>
             <div className="button-group">
               <a href="#categories" className="btn btn-primary" style={{ textDecoration: 'none' }}>EXPLORE COLLECTIONS</a>
-              <a href="#about" className="btn btn-outline" style={{ textDecoration: 'none' }}>OUR LEGACY</a>
+              <Link to="/about" className="btn btn-outline" style={{ textDecoration: 'none' }}>OUR LEGACY</Link>
             </div>
           </motion.div>
         </div>

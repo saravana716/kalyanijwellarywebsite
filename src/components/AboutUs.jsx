@@ -54,7 +54,7 @@ const AboutUs = () => {
                 we have kept to every customer who walks through our doors.
               </p>
             </div>
-            <Link to="/contact" className="btn btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Explore Our Journey</Link>
+            <Link to="/about" className="btn btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Explore Our Journey</Link>
           </motion.div>
         </div>
       </div>

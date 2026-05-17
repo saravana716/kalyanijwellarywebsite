@@ -26,7 +26,7 @@ const Navbar = ({ activeSection }) => {
   const menuItems = [
     { label: 'Shop', id: 'products', type: 'anchor' },
     { label: 'Collections', id: 'categories', type: 'anchor' },
-    { label: 'Heritage', id: 'features', type: 'anchor' },
+    { label: 'About', path: '/about', type: 'route' },
     { label: 'Process', id: 'how-it-works', type: 'anchor' },
     { label: 'Contact', path: '/contact', type: 'route' }
   ];

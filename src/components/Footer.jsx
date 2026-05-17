@@ -55,9 +55,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
+                {/* <a href="/contact" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
                   <FaFacebookF size={16} /> Facebook
-                </a>
+                </a> */}
               </li>
               <li>
                 <a href="https://wa.me/917598303666" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.8rem', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
