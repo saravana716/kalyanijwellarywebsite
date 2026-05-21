@@ -99,7 +99,7 @@ const Terms = () => {
             transition={{ delay: 0.1 }}
             style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: 'var(--cream)', fontWeight: 400, marginBottom: '1.5rem' }}
           >
-            Store Policies & <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>Terms</span>
+            Terms & <span style={{ color: 'var(--gold)', fontStyle: 'italic' }}>Privacy</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
