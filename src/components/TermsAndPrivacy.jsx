@@ -387,7 +387,7 @@ const TermsAndPrivacy = () => {
                   <ul>
                     <li>Orders can be canceled only before they are shipped.</li>
                     <li>Once an order has been shipped, it cannot be canceled.</li>
-                    <li>For cancellation requests, you may also email us at <a href="mailto:support@srikalyanijewellery.com" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>support@srikalyanijewellery.com</a> or contact our helpline.</li>
+                    <li>For cancellation requests, you may also email us at <a href="mailto:srikalyanijewellerykvp@gmail.com" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>srikalyanijewellerykvp@gmail.com</a> or contact our helpline.</li>
                   </ul>
                 </div>
 
