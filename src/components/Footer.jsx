@@ -72,14 +72,22 @@ const Footer = () => {
           paddingTop: '3rem', 
           borderTop: '1px solid rgba(0,0,0,0.05)', 
           display: 'flex', 
-          justifyContent: 'center', 
+          justifyContent: 'space-between', 
+          alignItems: 'center',
           flexWrap: 'wrap', 
-          gap: '1rem',
+          gap: '1.5rem',
           fontSize: '0.75rem',
           color: 'var(--text-muted)',
           opacity: 0.8
         }}>
           <span>© 2026 Sri Kalyani Jewellery. All rights reserved.</span>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <a href="/terms#terms" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Terms & Conditions</a>
+            <a href="/terms#privacy" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Privacy Policy</a>
+            <a href="/terms#refund" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Refund & Return</a>
+            <a href="/terms#shipping" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Shipping Policy</a>
+            <a href="/terms#cancellation" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Cancellation & Exchange</a>
+          </div>
         </div>
       </div>
     </footer>

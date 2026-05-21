@@ -8,6 +8,7 @@ import CollectionPage from './pages/CollectionPage';
 import FavoritesPage from './pages/FavoritesPage';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Terms from './pages/Terms';
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path="/wishlist" element={<FavoritesPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </main>
           <Footer />

@@ -6,7 +6,6 @@ import ProductShowcase from '../components/ProductShowcase';
 import TrendingNow from '../components/TrendingNow';
 import HowItWorks from '../components/HowItWorks';
 import Features from '../components/Features';
-import TermsAndPrivacy from '../components/TermsAndPrivacy';
 import EnrollmentForm from '../components/EnrollmentForm';
 import AboutUs from '../components/AboutUs';
 import SacredSilver from '../components/SacredSilver';
@@ -51,7 +50,6 @@ const Home = ({ setActiveSection }) => {
       <HowItWorks />
       <EnrollmentForm />
       <AboutUs />
-      <TermsAndPrivacy />
     </>
   );
 };
