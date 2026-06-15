@@ -215,6 +215,25 @@ const Terms = () => {
                   <h4>Governing Law</h4>
                   <p>These Terms & Conditions are governed by the laws of India. Any disputes arising shall fall under the jurisdiction of the courts located in Tamil Nadu.</p>
                 </div>
+                <div className="policy-section">
+                  <h4>Business Information
+</h4>
+                  <p>This website, <a>www.srikalyanijewellery.com</a>, is owned and operated by GANESHKUMAR.</p>
+                  <p>Legal Entity Name: GANESHKUMAR</p>
+                  <p>GSTIN: 33AKAPG3408J1ZM
+</p>
+                  <p>Registered Office Address:
+</p>
+                  <p>18, South Bazaar,
+</p>
+                  <p>Kovilpatti,
+</p>
+                  <p>Thoothukudi District,
+</p>
+                  <p>Tamil Nadu – 628501</p>
+                  <p>For any queries, concerns, or support regarding products, orders, or services offered on this website, customers may contact us using the details provided on the Contact Us page.</p>
+                  <p>All transactions conducted through this website are carried out by the above-mentioned legal entity in accordance with applicable laws and regulations.</p>
+                </div>
 
                 {renderContactBox('Terms & Conditions')}
               </motion.div>
@@ -313,6 +332,25 @@ const Terms = () => {
                 <div className="policy-section">
                   <h4>8. Changes to This Policy</h4>
                   <p>We may update this Privacy Policy from time to time. All changes will be posted on this page with an updated date.</p>
+                </div>
+                    <div className="policy-section">
+                  <h4>Business Information
+</h4>
+                  <p>This website, <a>www.srikalyanijewellery.com</a>, is owned and operated by GANESHKUMAR.</p>
+                  <p>Legal Entity Name: GANESHKUMAR</p>
+                  <p>GSTIN: 33AKAPG3408J1ZM
+</p>
+                  <p>Registered Office Address:
+</p>
+                  <p>18, South Bazaar,
+</p>
+                  <p>Kovilpatti,
+</p>
+                  <p>Thoothukudi District,
+</p>
+                  <p>Tamil Nadu – 628501</p>
+                  <p>For any queries, concerns, or support regarding products, orders, or services offered on this website, customers may contact us using the details provided on the Contact Us page.</p>
+                  <p>All transactions conducted through this website are carried out by the above-mentioned legal entity in accordance with applicable laws and regulations.</p>
                 </div>
 
                 {renderContactBox('Privacy Policy')}
