@@ -40,10 +40,196 @@ const PaymentFlow = () => {
   });
 
   const [paymentMethod, setPaymentMethod] = useState('upi');
-  const [completedOrder, setCompletedOrder] = useState(null);
+  const [completedOrder, setCompletedOrder] = useState(() => {
+    const saved = localStorage.getItem('srikalyani_completed_order');
+    return saved ? JSON.parse(saved) : null;
+  });
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState('');
+  const [verifying, setVerifying] = useState(false);
+
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://easybuzzbackend.onrender.com';
+
+  useEffect(() => {
+    const txnid = searchParams.get('txnid');
+    const step = parseInt(searchParams.get('step'));
+    const errorParam = searchParams.get('error');
+
+    if (errorParam) {
+      setApiError(decodeURIComponent(errorParam) === 'payment_failed' ? 'Payment was declined or failed. Please try again.' : decodeURIComponent(errorParam));
+      setSearchParams({ id: productId || '', step: step || 5 });
+    }
+
+    if (txnid && step === 6) {
+      // Prevent double verification due to React Strict Mode double-render race condition
+      const verifyingTxn = sessionStorage.getItem('srikalyani_verifying_txn');
+      if (verifyingTxn === txnid) {
+        return;
+      }
+      sessionStorage.setItem('srikalyani_verifying_txn', txnid);
+
+      const savedCompleted = localStorage.getItem('srikalyani_completed_order');
+      if (savedCompleted) {
+        try {
+          const parsed = JSON.parse(savedCompleted);
+          if (parsed && parsed.txnid === txnid) {
+            setCompletedOrder(parsed);
+            setSearchParams({ step: 6 });
+            setCurrentStep(6);
+            return;
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      const verifyPayment = async () => {
+        setVerifying(true);
+        setLoading(true);
+        try {
+          const res = await fetch(`${API_BASE_URL}/api/payment/status/${txnid}`);
+          const result = await res.json();
+          
+          if (result.success && result.data && result.data.status === 'success') {
+            const pendingOrderStr = localStorage.getItem('srikalyani_pending_order');
+            let orderData = null;
+            if (pendingOrderStr) {
+              orderData = JSON.parse(pendingOrderStr);
+            } else {
+              orderData = {
+                items: [...cart],
+                subtotal,
+                gst,
+                total,
+                formData: { ...formData }
+              };
+            }
+            
+            orderData.txnid = txnid;
+            orderData.easepayid = result.data.easepayid;
+            orderData.paymentMode = result.data.mode;
+            orderData.paymentDate = result.data.updatedAt || new Date().toISOString();
+            
+            setCompletedOrder(orderData);
+            localStorage.setItem('srikalyani_completed_order', JSON.stringify(orderData));
+            localStorage.removeItem('srikalyani_pending_order');
+            clearCart();
+            setSearchParams({ step: 6 });
+            setCurrentStep(6);
+          } else {
+            sessionStorage.removeItem('srikalyani_verifying_txn'); // Allow retry
+            setApiError('Payment verification failed. The payment status is not successful.');
+            setSearchParams({ step: 5 });
+            setCurrentStep(5);
+          }
+        } catch (error) {
+          console.error('Error verifying payment:', error);
+          sessionStorage.removeItem('srikalyani_verifying_txn'); // Allow retry
+          setApiError('Unable to verify payment status with server. Please contact support.');
+          setSearchParams({ step: 5 });
+          setCurrentStep(5);
+        } finally {
+          setVerifying(false);
+          setLoading(false);
+        }
+      };
+      
+      verifyPayment();
+    }
+  }, [searchParams]);
+
+  const handleInitiatePayment = async () => {
+    setLoading(true);
+    setApiError('');
+    
+    let show_payment_mode = 'UPI,NB';
+    if (paymentMethod === 'upi') {
+      show_payment_mode = 'UPI';
+    } else if (paymentMethod === 'card') {
+      show_payment_mode = 'CC,DC';
+    } else if (paymentMethod === 'net') {
+      show_payment_mode = 'NB';
+    }
+    
+    const cleanedPhone = formData.mobileNumber.replace(/\D/g, '').slice(-10);
+    
+    const cleanedProductInfo = cart.map(item => item.name)
+      .join(' ')
+      .replace(/[^a-zA-Z0-9\s\-]/g, '')
+      .substring(0, 80)
+      .trim() || 'Jewellery Selection';
+
+    const requestBody = {
+      amount: total.toFixed(2),
+      firstname: formData.fullName.split(' ')[0] || 'Customer',
+      email: formData.email,
+      phone: cleanedPhone,
+      productinfo: cleanedProductInfo,
+      show_payment_mode,
+      frontendUrl: window.location.origin
+    };
+    
+    const pendingOrder = {
+      items: [...cart],
+      subtotal,
+      gst,
+      total,
+      formData: { ...formData }
+    };
+    localStorage.setItem('srikalyani_pending_order', JSON.stringify(pendingOrder));
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/payment/initiate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to initiate payment transaction');
+      }
+      
+      window.location.href = result.data.paymentUrl;
+    } catch (err) {
+      console.error('Error initiating payment:', err);
+      setApiError(err.message || 'Failed to connect to payment server. Please try again.');
+      setLoading(false);
+    }
+  };
+
+  const handleDownloadPDF = (txnid) => {
+    const element = document.getElementById('invoice-card');
+    if (!element) return;
+
+    const opt = {
+      margin:       0.3,
+      filename:     `invoice_${txnid || 'order'}.pdf`,
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    if (window.html2pdf) {
+      window.html2pdf().from(element).set(opt).save();
+    } else {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+      script.onload = () => {
+        window.html2pdf().from(element).set(opt).save();
+      };
+      document.body.appendChild(script);
+    }
+  };
 
   useEffect(() => {
     if (productId) {
+      localStorage.removeItem('srikalyani_completed_order');
+      setCompletedOrder(null);
+      
       const prod = products.find(p => p.id === productId);
       if (prod) {
         setSelectedProduct(prod);
@@ -100,17 +286,15 @@ const PaymentFlow = () => {
       case 2: return <StepAddToCart cart={cart} product={selectedProduct} onNext={nextStep} onPrev={prevStep} subtotal={subtotal} gst={gst} total={total} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />;
       case 3: return <StepEnterDetails formData={formData} setFormData={setFormData} onNext={nextStep} onPrev={prevStep} />;
       case 4: return <StepCheckout subtotal={subtotal} gst={gst} total={total} onNext={nextStep} onPrev={prevStep} cart={cart} />;
-      case 5: return <StepPayment total={total} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} onNext={() => { 
-        setCompletedOrder({
-          items: [...cart],
-          subtotal,
-          gst,
-          total,
-          formData: {...formData}
-        });
-        clearCart(); 
-        nextStep(); 
-      }} onPrev={prevStep} />;
+      case 5: return <StepPayment 
+        total={total} 
+        paymentMethod={paymentMethod} 
+        setPaymentMethod={setPaymentMethod} 
+        onNext={handleInitiatePayment} 
+        onPrev={prevStep}
+        loading={loading}
+        apiError={apiError}
+      />;
       case 6: return <StepPaymentSuccess total={completedOrder?.total || total} onNext={nextStep} />;
       case 7: return <StepOrderConfirmation total={completedOrder?.total || total} formData={completedOrder?.formData || formData} onNext={nextStep} />;
       case 8: return <StepInvoice 
@@ -119,13 +303,52 @@ const PaymentFlow = () => {
         subtotal={completedOrder?.subtotal || 0} 
         gst={completedOrder?.gst || 0} 
         formData={completedOrder?.formData || formData} 
+        txnid={completedOrder?.txnid}
+        easepayid={completedOrder?.easepayid}
+        paymentMode={completedOrder?.paymentMode}
+        paymentDate={completedOrder?.paymentDate}
+        onDownloadPDF={() => handleDownloadPDF(completedOrder?.txnid)}
       />;
       default: return null;
     }
   };
 
   return (
-    <div style={{ background: '#fdfcf8', minHeight: '100vh', padding: '120px 0 80px' }}>
+    <div style={{ background: '#fdfcf8', minHeight: '100vh', padding: '120px 0 80px', position: 'relative' }}>
+      {verifying && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(253, 252, 248, 0.95)',
+          zIndex: 9999,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backdropFilter: 'blur(5px)'
+        }}>
+          <div style={{
+            width: '50px',
+            height: '50px',
+            border: '3px solid rgba(186, 139, 45, 0.2)',
+            borderTopColor: 'var(--gold)',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            marginBottom: '2rem'
+          }} />
+          <h3 style={{ color: 'var(--gold)', fontWeight: 500, fontSize: '1.4rem', marginBottom: '0.5rem' }}>Verifying Payment</h3>
+          <p style={{ color: '#666', fontSize: '0.9rem' }}>Please do not close this window or refresh the page.</p>
+          <style>{`
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+          `}</style>
+        </div>
+      )}
       <div className="container">
         {/* Header Badges */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '4rem', flexWrap: 'wrap' }}>
@@ -315,6 +538,27 @@ const PaymentFlow = () => {
         .checkout-input:focus {
           border-color: var(--gold);
           background: rgba(96, 40, 54, 0.01);
+        }
+        @media print {
+          body {
+            background: white !important;
+            color: black !important;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+          nav, footer, .stepper-container, .btn, .badge-item, div[style*="marginTop: 6rem"], div[style*="marginTop: 4rem"] {
+            display: none !important;
+          }
+          .flow-card {
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+          #invoice-card {
+            padding: 0 !important;
+            border: none !important;
+          }
         }
       `}</style>
     </div>
@@ -537,12 +781,18 @@ const StepCheckout = ({ subtotal, gst, total, onNext, cart }) => (
   </div>
 );
 
-const StepPayment = ({ total, paymentMethod, setPaymentMethod, onNext }) => (
+const StepPayment = ({ total, paymentMethod, setPaymentMethod, onNext, onPrev, loading, apiError }) => (
   <div className="flow-card">
     <div className="flow-card-title">
       <div className="step-tag">5</div> Secure Payment
     </div>
     <div style={{ maxWidth: '650px', margin: '0 auto' }}>
+      {apiError && (
+        <div style={{ padding: '1.2rem', background: '#fef2f2', border: '1px solid #fee2e2', color: '#ef4444', borderRadius: '8px', marginBottom: '2rem', fontSize: '0.9rem' }}>
+          {apiError}
+        </div>
+      )}
+      
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '4rem' }}>
         {[
           { id: 'upi', label: 'UPI (GPay, PhonePe, Paytm)', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/1200px-UPI-Logo-vector.svg.png' },
@@ -551,7 +801,7 @@ const StepPayment = ({ total, paymentMethod, setPaymentMethod, onNext }) => (
         ].map((method) => (
           <div 
             key={method.id} 
-            onClick={() => setPaymentMethod(method.id)}
+            onClick={() => !loading && setPaymentMethod(method.id)}
             style={{ 
               padding: '1.5rem', 
               border: '1px solid #eee', 
@@ -559,7 +809,8 @@ const StepPayment = ({ total, paymentMethod, setPaymentMethod, onNext }) => (
               display: 'flex', 
               justifyContent: 'space-between', 
               alignItems: 'center',
-              cursor: 'pointer',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              opacity: loading ? 0.7 : 1,
               background: paymentMethod === method.id ? 'rgba(96, 40, 54, 0.03)' : 'white',
               borderColor: paymentMethod === method.id ? 'var(--gold)' : '#eee'
             }}
@@ -574,9 +825,25 @@ const StepPayment = ({ total, paymentMethod, setPaymentMethod, onNext }) => (
           </div>
         ))}
       </div>
-      <button onClick={onNext} className="btn btn-primary" style={{ width: '100%', padding: '1.4rem', fontSize: '0.85rem' }}>
-        COMPLETE PAYMENT (₹{total.toLocaleString()})
-      </button>
+      
+      <div style={{ display: 'flex', gap: '1.5rem' }}>
+        <button 
+          onClick={onPrev} 
+          disabled={loading}
+          className="btn btn-outline" 
+          style={{ flex: 1, padding: '1.4rem', fontSize: '0.85rem' }}
+        >
+          BACK
+        </button>
+        <button 
+          onClick={onNext} 
+          disabled={loading}
+          className="btn btn-primary" 
+          style={{ flex: 2, padding: '1.4rem', fontSize: '0.85rem', position: 'relative' }}
+        >
+          {loading ? 'PROCESSING...' : `COMPLETE PAYMENT (₹${total.toLocaleString()})`}
+        </button>
+      </div>
     </div>
   </div>
 );
@@ -605,14 +872,14 @@ const StepOrderConfirmation = ({ total, formData, onNext }) => (
   </div>
 );
 
-const StepInvoice = ({ cart, total, subtotal, gst, formData }) => (
+const StepInvoice = ({ cart, total, subtotal, gst, formData, txnid, easepayid, paymentMode, paymentDate, onDownloadPDF }) => (
   <div className="flow-card" style={{ padding: '4rem' }}>
-    <div style={{ background: 'white', border: '1px solid #eee', borderRadius: '8px', padding: '5rem', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '6px', background: 'var(--gold)' }} />
+    <div id="invoice-card" style={{ background: 'white', border: '1px solid #eee', borderRadius: '8px', padding: '5rem', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '6px', background: '#602836' }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6rem' }}>
         <div>
-          <h2 style={{ color: 'var(--gold)', fontSize: '1.8rem' }}>SRI KALYANI</h2>
-          <div style={{ color: 'var(--gold-light)', fontSize: '0.75rem', letterSpacing: '0.3em' }}>JEWELLERY MART</div>
+          <h2 style={{ color: '#602836', fontSize: '1.8rem' }}>SRI KALYANI</h2>
+          <div style={{ color: '#BA8B2D', fontSize: '0.75rem', letterSpacing: '0.3em' }}>JEWELLERY MART</div>
         </div>
         <div style={{ textAlign: 'right' }}>
           <h3 style={{ fontSize: '1.4rem', fontWeight: 500 }}>Tax Invoice</h3>
@@ -621,8 +888,11 @@ const StepInvoice = ({ cart, total, subtotal, gst, formData }) => (
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '6rem' }}>
         <div style={{ fontSize: '0.9rem' }}>
-          <div>Invoice No: <strong>INV-2024-100245</strong></div>
-          <div>Date: <strong>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</strong></div>
+          <div>Invoice No: <strong>INV-{txnid ? txnid.slice(-6) : '100245'}</strong></div>
+          {txnid && <div style={{ marginTop: '0.3rem' }}>Transaction ID: <strong>{txnid}</strong></div>}
+          {easepayid && <div style={{ marginTop: '0.3rem' }}>Easepay ID: <strong>{easepayid}</strong></div>}
+          {paymentMode && <div style={{ marginTop: '0.3rem' }}>Payment Mode: <strong>{paymentMode}</strong></div>}
+          <div style={{ marginTop: '0.3rem' }}>Date: <strong>{paymentDate ? new Date(paymentDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</strong></div>
         </div>
         <div style={{ textAlign: 'right', fontSize: '0.9rem' }}>
           <div style={{ color: '#aaa', textTransform: 'uppercase', fontSize: '0.7rem' }}>Billed To</div>
@@ -659,15 +929,19 @@ const StepInvoice = ({ cart, total, subtotal, gst, formData }) => (
           <span>GST (3%)</span>
           <span>₹{gst.toLocaleString()}</span>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '2px solid var(--gold)', paddingTop: '2rem', marginTop: '1rem', fontSize: '1.4rem', fontWeight: 700 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '2px solid #602836', paddingTop: '2rem', marginTop: '1rem', fontSize: '1.4rem', fontWeight: 700 }}>
           <span>Total Paid</span>
-          <span style={{ color: 'var(--gold)' }}>₹{total.toLocaleString()}</span>
+          <span style={{ color: '#602836' }}>₹{total.toLocaleString()}</span>
         </div>
       </div>
     </div>
     <div style={{ display: 'flex', gap: '2rem', marginTop: '4rem' }}>
-      <button className="btn btn-outline" style={{ flex: 1, padding: '1.4rem' }}><Download size={20} /> DOWNLOAD PDF</button>
-      <button className="btn btn-primary" style={{ flex: 1, padding: '1.4rem' }}><FileText size={20} /> PRINT RECEIPT</button>
+      <button onClick={onDownloadPDF} className="btn btn-outline" style={{ flex: 1, padding: '1.4rem' }}>
+        <Download size={20} /> DOWNLOAD PDF
+      </button>
+      <button onClick={() => window.print()} className="btn btn-primary" style={{ flex: 1, padding: '1.4rem' }}>
+        <FileText size={20} /> PRINT RECEIPT
+      </button>
     </div>
   </div>
 );
