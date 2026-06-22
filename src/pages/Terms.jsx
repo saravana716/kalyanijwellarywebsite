@@ -404,6 +404,25 @@ const Terms = () => {
                     <li>Used or altered products.</li>
                   </ul>
                 </div>
+                   <div className="policy-section">
+                  <h4>Business Information
+</h4>
+                  <p>This website, <a>www.srikalyanijewellery.com</a>, is owned and operated by GANESHKUMAR.</p>
+                  <p>Legal Entity Name: GANESHKUMAR</p>
+                  <p>GSTIN: 33AKAPG3408J1ZM
+</p>
+                  <p>Registered Office Address:
+</p>
+                  <p>18, South Bazaar,
+</p>
+                  <p>Kovilpatti,
+</p>
+                  <p>Thoothukudi District,
+</p>
+                  <p>Tamil Nadu – 628501</p>
+                  <p>For any queries, concerns, or support regarding products, orders, or services offered on this website, customers may contact us using the details provided on the Contact Us page.</p>
+                  <p>All transactions conducted through this website are carried out by the above-mentioned legal entity in accordance with applicable laws and regulations.</p>
+                </div>
 
                 {renderContactBox('Refund & Return Policy')}
               </motion.div>
@@ -461,6 +480,25 @@ const Terms = () => {
                     <li>Delays may occur due to weather or courier issues.</li>
                     <li>We will notify customers in case of delays.</li>
                   </ul>
+                </div>
+                   <div className="policy-section">
+                  <h4>Business Information
+</h4>
+                  <p>This website, <a>www.srikalyanijewellery.com</a>, is owned and operated by GANESHKUMAR.</p>
+                  <p>Legal Entity Name: GANESHKUMAR</p>
+                  <p>GSTIN: 33AKAPG3408J1ZM
+</p>
+                  <p>Registered Office Address:
+</p>
+                  <p>18, South Bazaar,
+</p>
+                  <p>Kovilpatti,
+</p>
+                  <p>Thoothukudi District,
+</p>
+                  <p>Tamil Nadu – 628501</p>
+                  <p>For any queries, concerns, or support regarding products, orders, or services offered on this website, customers may contact us using the details provided on the Contact Us page.</p>
+                  <p>All transactions conducted through this website are carried out by the above-mentioned legal entity in accordance with applicable laws and regulations.</p>
                 </div>
 
                 {renderContactBox('Shipping Policy')}
@@ -526,6 +564,25 @@ const Terms = () => {
                     <li>Items returned without original packaging.</li>
                     <li>Damage caused after delivery due to customer handling.</li>
                   </ul>
+                </div>
+                   <div className="policy-section">
+                  <h4>Business Information
+</h4>
+                  <p>This website, <a>www.srikalyanijewellery.com</a>, is owned and operated by GANESHKUMAR.</p>
+                  <p>Legal Entity Name: GANESHKUMAR</p>
+                  <p>GSTIN: 33AKAPG3408J1ZM
+</p>
+                  <p>Registered Office Address:
+</p>
+                  <p>18, South Bazaar,
+</p>
+                  <p>Kovilpatti,
+</p>
+                  <p>Thoothukudi District,
+</p>
+                  <p>Tamil Nadu – 628501</p>
+                  <p>For any queries, concerns, or support regarding products, orders, or services offered on this website, customers may contact us using the details provided on the Contact Us page.</p>
+                  <p>All transactions conducted through this website are carried out by the above-mentioned legal entity in accordance with applicable laws and regulations.</p>
                 </div>
 
                 {renderContactBox('Cancellation & Exchange Policy')}

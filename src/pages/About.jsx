@@ -123,7 +123,7 @@ const About = () => {
                   culture, beauty, and every special moment in life.
                 </p>
                 <p>
-                  With a passion for quality and craftsmanship, Sri Kalyani Jewellery brings you a wide range of gold, silver, diamond, and traditional jewellery designs that blend heritage with modern style. Every ornament is carefully selected and designed to reflect trust, purity, and sophistication.
+                  With a passion for quality and craftsmanship, Sri Kalyani Jewellery brings you a wide range of gold, diamond, and traditional jewellery designs that blend heritage with modern style. Every ornament is carefully selected and designed to reflect trust, purity, and sophistication.
                 </p>
               </div>
             </motion.div>

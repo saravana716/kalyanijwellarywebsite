@@ -80,7 +80,7 @@ const Footer = () => {
           color: 'var(--text-muted)',
           opacity: 0.8
         }}>
-          <span>© 2026 Sri Kalyani Jewellery. All rights reserved.</span>
+          <span>© 2026 Sri Kalyani Jewellery Mart. All rights reserved.</span>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             <a href="/terms#terms" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Terms & Conditions</a>
             <a href="/terms#privacy" style={{ color: 'inherit', textDecoration: 'none', transition: 'var(--transition)' }} onMouseOver={(e) => e.target.style.color = 'var(--gold)'} onMouseOut={(e) => e.target.style.color = 'var(--text-muted)'}>Privacy Policy</a>

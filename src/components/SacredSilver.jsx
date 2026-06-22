@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import silverImg from '../assets/silver_ganesha_idol.png';
+import silverImg from '../assets/goldd.jpeg';
 
 const SacredSilver = () => {
   return (
@@ -17,23 +17,28 @@ const SacredSilver = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="section-label">Sacred Silver Collections</span>
+            <span className="section-label">GOLD JEWELLERY COLLECTIONS</span>
             <h2 className="section-title" style={{ fontSize: '2.8rem', color: '#1A1814' }}>
-              Pure Silver Idols For Divine Blessings & <em>Auspicious Gifting</em>
+              Elegant Gold Jewellery For Every Occasion
             </h2>
             <p style={{ 
+              marginBottom: '1rem', 
+              color: 'var(--text-muted)', 
+              lineHeight: 1.8, 
+              fontSize: '1.05rem',
+              fontWeight: 300 
+            }}>
+              Discover beautifully crafted gold jewellery designed to celebrate life's special moments. From necklaces and bangles to rings and earrings, each piece combines timeless elegance with trusted quality.
+    </p>
+     <p style={{ 
               marginBottom: '2.5rem', 
               color: 'var(--text-muted)', 
               lineHeight: 1.8, 
               fontSize: '1.05rem',
               fontWeight: 300 
             }}>
-              Bring home positivity and spiritual elegance with our premium silver idol collections. 
-              Sri Kalyani Jewellery offers beautifully detailed silver idols of Ganesha, Lakshmi, Murugan, Balaji, Krishna, and more — 
-              perfect for pooja rooms, weddings, housewarming gifts, and festive occasions. 
-              Crafted with purity and devotion, every piece reflects divine artistry and tradition.
-            </p>
-            <a href="#products" className="btn btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Explore Silver Idols</a>
+Find the perfect jewellery for weddings, festivals, gifting, and everyday wear.    </p>
+            <a href="#products" className="btn btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>SHOP GOLD COLLECTIONS</a>
           </motion.div>
 
           <motion.div
@@ -51,7 +56,7 @@ const SacredSilver = () => {
             }} />
             <img 
               src={silverImg} 
-              alt="Sacred Silver Collection" 
+              alt="Sacred Collection" 
               style={{ 
                 width: '100%', 
                 borderRadius: '4px',
